@@ -1,8 +1,21 @@
 import React from 'react';
 import { Section } from '../ui';
 
+interface EventItem {
+  date: string;
+  title: string;
+  location: string;
+  description: string;
+  participants?: string[];
+}
+
+interface YearGroup {
+  year: string;
+  items: EventItem[];
+}
+
 export const EventsSection: React.FC = () => {
-  const events = [
+  const events: YearGroup[] = [
     {
       year: '2025年',
       items: [
