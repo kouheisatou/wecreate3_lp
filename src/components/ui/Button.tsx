@@ -4,7 +4,7 @@ import React from 'react';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'unique' | 'neomorphic';
   size?: 'sm' | 'md' | 'lg';
   onClick?: () => void;
   href?: string;
@@ -26,7 +26,9 @@ export const Button: React.FC<ButtonProps> = ({
   const variantClasses = {
     primary: 'bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 disabled:bg-gray-400',
     secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400',
-    outline: 'border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white active:bg-gray-800 disabled:border-gray-400 disabled:text-gray-400',
+    outline: 'border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white active:bg-gray-800 disabled:border-gray-400 disabled:text-gray-400 unique-button-outline',
+    unique: 'bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 disabled:bg-gray-400 unique-button',
+    neomorphic: 'text-gray-900 neomorphic-button hover:text-gray-800 disabled:text-gray-400',
   };
   
   const sizeClasses = {
