@@ -20,36 +20,36 @@ export const AboutSection: React.FC = () => {
   return (
     <Section id="about" background="gray">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
             WeCreate3について
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed px-4">
             2022年7月設立。各大学の学生団体が集結し、Web3とメタバースの認識拡大と可能性創出を目的として活動する日本最大の学生Web3コミュニティです。
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-4">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <div key={index} className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {feature.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-white p-8 rounded-lg shadow-sm">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+        <div className="mt-12 md:mt-16 text-center px-4">
+          <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 md:mb-6">
               参加大学例
             </h3>
-            <div className="flex flex-wrap justify-center gap-4 text-gray-600">
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 text-gray-600">
               {['早稲田大学', '上智大学', '法政大学', '立教大学', 'iU', '神奈川大学', '東北大学'].map((university, index) => (
-                <span key={index} className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                <span key={index} className="px-3 py-1.5 bg-gray-100 rounded-full text-sm touch-manipulation">
                   {university}
                 </span>
               ))}

@@ -28,37 +28,37 @@ export const ActivitiesSection: React.FC = () => {
   return (
     <Section id="activities" background="gray">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
             主な活動
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             WeCreate3では、学生の皆さんがWeb3とメタバースの世界で活躍できるよう、
             多角的なアプローチで支援を行っています。
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 px-4">
           {activities.map((activity, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg shadow-sm">
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <div key={index} className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
+              <div className="mb-4 md:mb-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
                   {activity.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   {activity.description}
                 </p>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-gray-900 mb-3 uppercase tracking-wide">
+                <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 md:mb-3 uppercase tracking-wide">
                   Key Features
                 </h4>
-                <div className="space-y-2">
+                <div className="space-y-1.5 md:space-y-2">
                   {activity.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center">
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-sm text-gray-600">{feature}</span>
+                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 md:mr-3 flex-shrink-0"></div>
+                      <span className="text-xs sm:text-sm text-gray-600">{feature}</span>
                     </div>
                   ))}
                 </div>

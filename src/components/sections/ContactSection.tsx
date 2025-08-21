@@ -47,32 +47,32 @@ export const ContactSection: React.FC = () => {
   return (
     <Section id="contact" background="gray">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
             お問い合わせ
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             WeCreate3に関するご質問、ご提案、ご相談など、
             お気軽にお問い合わせください。
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 px-4">
           {/* お問い合わせ内容 */}
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-8">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8">
               お問い合わせ内容
             </h3>
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {contactTypes.map((type, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+                <div key={index} className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
                   <div className="flex items-start">
-                    <div className="text-2xl mr-4 mt-1">{type.icon}</div>
+                    <div className="text-xl md:text-2xl mr-3 md:mr-4 mt-1 flex-shrink-0">{type.icon}</div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
                         {type.title}
                       </h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                         {type.description}
                       </p>
                     </div>
@@ -83,30 +83,30 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* コンタクト方法とFAQ */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {/* 公式SNS */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 md:mb-6">
                 公式SNS
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <div className="flex items-center">
-                  <svg className="w-6 h-6 text-gray-600 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-600 mr-2 md:mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                   <div>
-                    <p className="font-medium text-gray-900">X (旧Twitter)</p>
+                    <p className="font-medium text-gray-900 text-sm sm:text-base">X (旧Twitter)</p>
                     <a
                       href="https://x.com/We_Create_3"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-gray-900 transition-colors"
+                      className="text-gray-600 hover:text-gray-900 transition-colors text-sm sm:text-base touch-manipulation"
                     >
                       @We_Create_3
                     </a>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                   DMでのお問い合わせを受け付けております。
                   お気軽にメッセージをお送りください。
                 </p>
@@ -114,17 +114,17 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* FAQ */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 md:mb-6">
                 よくある質問
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {faqs.map((faq, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0">
-                    <h4 className="font-medium text-gray-900 mb-2">
+                  <div key={index} className="border-b border-gray-200 pb-3 md:pb-4 last:border-b-0 last:pb-0">
+                    <h4 className="font-medium text-gray-900 mb-1.5 md:mb-2 text-sm sm:text-base">
                       Q. {faq.question}
                     </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                       A. {faq.answer}
                     </p>
                   </div>

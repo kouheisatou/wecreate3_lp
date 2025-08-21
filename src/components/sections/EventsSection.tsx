@@ -68,43 +68,43 @@ export const EventsSection: React.FC = () => {
   return (
     <Section id="events">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
             イベント実績
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             これまでに多くの大規模イベントを成功に導き、学生と業界のプロフェッショナルを繋ぐ場を提供してきました。
           </p>
         </div>
 
         {/* イベント履歴 */}
-        <div className="space-y-12 mb-16">
+        <div className="space-y-8 md:space-y-12 mb-12 md:mb-16 px-4">
           {events.map((yearGroup, yearIndex) => (
             <div key={yearIndex}>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
                 {yearGroup.year}
               </h3>
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {yearGroup.items.map((event, eventIndex) => (
-                  <div key={eventIndex} className="bg-gray-50 p-6 rounded-lg">
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                  <div key={eventIndex} className="bg-gray-50 p-4 md:p-6 rounded-lg">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4">
                       <div className="lg:col-span-1">
-                        <div className="text-sm font-medium text-gray-500 mb-1">日付</div>
-                        <div className="font-semibold text-gray-900">{event.date}</div>
+                        <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">日付</div>
+                        <div className="text-sm sm:text-base font-semibold text-gray-900">{event.date}</div>
                       </div>
                       <div className="lg:col-span-2">
-                        <div className="text-sm font-medium text-gray-500 mb-1">イベント名</div>
-                        <div className="font-semibold text-gray-900 mb-2">{event.title}</div>
-                        <div className="text-sm text-gray-600 mb-2">{event.location}</div>
-                        <div className="text-sm text-gray-600">{event.description}</div>
+                        <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">イベント名</div>
+                        <div className="text-sm sm:text-base font-semibold text-gray-900 mb-2">{event.title}</div>
+                        <div className="text-xs sm:text-sm text-gray-600 mb-2">{event.location}</div>
+                        <div className="text-xs sm:text-sm text-gray-600">{event.description}</div>
                       </div>
                       <div className="lg:col-span-1">
                         {event.participants && (
                           <div>
-                            <div className="text-sm font-medium text-gray-500 mb-2">参加企業</div>
+                            <div className="text-xs sm:text-sm font-medium text-gray-500 mb-2">参加企業</div>
                             <div className="flex flex-wrap gap-1">
                               {event.participants.slice(0, 3).map((participant, pIndex) => (
-                                <span key={pIndex} className="text-xs bg-white px-2 py-1 rounded text-gray-600">
+                                <span key={pIndex} className="text-xs bg-white px-2 py-1 rounded text-gray-600 touch-manipulation">
                                   {participant}
                                 </span>
                               ))}

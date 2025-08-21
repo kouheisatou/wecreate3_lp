@@ -29,12 +29,12 @@ export const Header: React.FC = () => {
       }`}
     >
       <Container>
-        <nav className="flex items-center justify-between py-4">
+        <nav className="flex items-center justify-between py-3 md:py-4">
           {/* ロゴ */}
           <div className="flex items-center">
             <a
               href="#hero"
-              className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
+              className="text-xl md:text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick('#hero');
@@ -45,12 +45,12 @@ export const Header: React.FC = () => {
           </div>
 
           {/* デスクトップナビゲーション */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {NAVIGATION_ITEMS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
+                className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium py-2 px-1"
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick(item.href);
@@ -63,7 +63,7 @@ export const Header: React.FC = () => {
 
           {/* モバイルメニューボタン */}
           <button
-            className="lg:hidden p-2 text-gray-700 hover:text-gray-900"
+            className="md:hidden p-2 text-gray-700 hover:text-gray-900 touch-manipulation"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="メニューを開く"
           >
@@ -94,13 +94,13 @@ export const Header: React.FC = () => {
 
         {/* モバイルメニュー */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden py-4 border-t border-gray-200 bg-white/95 backdrop-blur-sm">
+            <div className="flex flex-col space-y-1">
               {NAVIGATION_ITEMS.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-gray-700 hover:text-gray-900 transition-colors text-base font-medium"
+                  className="text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors text-base font-medium py-3 px-4 rounded-md touch-manipulation"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(item.href);

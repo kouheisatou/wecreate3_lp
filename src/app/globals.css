@@ -81,6 +81,37 @@ section {
   scroll-margin-top: 80px;
 }
 
+/* モバイル向け最適化 */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 70px;
+  }
+}
+
+/* モバイル向けタッチ最適化 */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* モバイル向けテキストの可読性向上 */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  h1 {
+    line-height: 1.1;
+  }
+  
+  h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+}
+
 /* マーブル模様の背景 */
 .marble-background {
   background: 

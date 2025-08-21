@@ -66,29 +66,29 @@ export const TeamSection: React.FC = () => {
     description: string;
     isLeader?: boolean;
   }> = ({ name, role, specialty, affiliation, twitter, description, isLeader = false }) => (
-    <div className={`bg-white p-6 rounded-lg shadow-sm ${isLeader ? 'border-2 border-gray-900' : ''}`}>
-      <div className="text-center mb-4">
-        <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4"></div>
-        <h4 className="text-lg font-semibold text-gray-900">{name}</h4>
-        <p className="text-gray-600 font-medium">{role}</p>
-        {affiliation && <p className="text-sm text-gray-500">{affiliation}</p>}
-        {specialty && <p className="text-sm text-gray-500 mt-1">{specialty}</p>}
+    <div className={`bg-white p-4 md:p-6 rounded-lg shadow-sm ${isLeader ? 'border-2 border-gray-900' : ''}`}>
+      <div className="text-center mb-3 md:mb-4">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 rounded-full mx-auto mb-3 md:mb-4"></div>
+        <h4 className="text-base sm:text-lg font-semibold text-gray-900">{name}</h4>
+        <p className="text-sm sm:text-base text-gray-600 font-medium">{role}</p>
+        {affiliation && <p className="text-xs sm:text-sm text-gray-500">{affiliation}</p>}
+        {specialty && <p className="text-xs sm:text-sm text-gray-500 mt-1">{specialty}</p>}
         {twitter && (
           <a
             href={`https://x.com/${twitter.replace('@', '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-gray-600 hover:text-gray-900 transition-colors mt-1 inline-block"
+            className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors mt-1 inline-block touch-manipulation"
           >
             {twitter}
           </a>
         )}
       </div>
-      <p className="text-sm text-gray-600 leading-relaxed text-center">
+      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed text-center">
         {description}
       </p>
       {isLeader && (
-        <div className="mt-4 text-center">
+        <div className="mt-3 md:mt-4 text-center">
           <span className="inline-block bg-gray-900 text-white text-xs px-2 py-1 rounded">
             代表
           </span>
@@ -100,21 +100,21 @@ export const TeamSection: React.FC = () => {
   return (
     <Section id="team" background="gray">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
             運営メンバー
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             多様なバックグラウンドを持つメンバーが、それぞれの専門性を活かしてWeCreate3の活動を支えています。
           </p>
         </div>
 
         {/* リーダー */}
-        <div className="mb-16">
-          <h3 className="text-xl font-semibold text-gray-900 mb-8 text-center">
+        <div className="mb-12 md:mb-16 px-4">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
             代表
           </h3>
-          <div className="max-w-md mx-auto">
+          <div className="max-w-sm sm:max-w-md mx-auto">
             <MemberCard
               name={leader.name}
               role={leader.role}
@@ -126,11 +126,11 @@ export const TeamSection: React.FC = () => {
         </div>
 
         {/* 運営メンバー */}
-        <div className="mb-16">
-          <h3 className="text-xl font-semibold text-gray-900 mb-8 text-center">
+        <div className="mb-12 md:mb-16 px-4">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
             運営メンバー
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {members.map((member, index) => (
               <MemberCard
                 key={index}
@@ -144,11 +144,11 @@ export const TeamSection: React.FC = () => {
         </div>
 
         {/* アドバイザー */}
-        <div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-8 text-center">
+        <div className="px-4">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
             アドバイザー
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             {advisors.map((advisor, index) => (
               <MemberCard
                 key={index}
