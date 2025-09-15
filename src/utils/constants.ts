@@ -22,3 +22,10 @@ export const NAVIGATION_ITEMS = [
   { label: 'Join', href: '#join' },
   { label: 'Contact', href: '#contact' },
 ] as const;
+
+// ページナビゲーション（トップページ以外からアクセス可能な主要ページ）
+export const PAGE_NAVIGATION_ITEMS = [
+  { label: '活動一覧', href: '/activities' },
+  { label: 'イベント実績', href: '/events' },
+  { label: '運営メンバー', href: '/team' },
+] as const;

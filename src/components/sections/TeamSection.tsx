@@ -1,99 +1,81 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Section } from '../ui';
+import { Member, fetchMembers, filterActiveItems, sortByOrder } from '../../utils';
 
 export const TeamSection: React.FC = () => {
-  const leader = {
-    name: '矢野 大雅',
-    role: 'WeCreate3 代表',
-    twitter: '@NFT_taiga',
-    description: 'ダミー説明文です。',
-  };
+  const [members, setMembers] = useState<Member[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const members = [
-    {
-      name: '田中 太郎',
-      role: 'イベント企画責任者',
-      specialty: 'イベントプロデュース、コミュニティマネジメント',
-      description: 'ダミー説明文です。',
-    },
-    {
-      name: '佐藤 花子',
-      role: 'マーケティング・広報担当',
-      specialty: 'デジタルマーケティング、SNS運用',
-      description: 'ダミー説明文です。',
-    },
-    {
-      name: '鈴木 一郎',
-      role: '技術・開発担当',
-      specialty: 'ブロックチェーン開発、スマートコントラクト',
-      description: 'ダミー説明文です。',
-    },
-    {
-      name: '高橋 美咲',
-      role: 'パートナーシップ担当',
-      specialty: '企業連携、ビジネス開発',
-      description: 'ダミー説明文です。',
-    },
-    {
-      name: '中村 健太',
-      role: '教育・コンテンツ担当',
-      specialty: '教育プログラム設計、コンテンツ制作',
-      description: 'ダミー説明文です。',
-    },
-  ];
+  // Show only leader + 4 members + 1 advisor on home page
+  const leaders = members.filter(m => m.type === 'leader');
+  const regularMembers = members.filter(m => m.type === 'member').slice(0, 4);
+  const advisors = members.filter(m => m.type === 'advisor').slice(0, 1);
 
-  const advisors = [
-    {
-      name: '山田 博士',
-      affiliation: '某大学教授',
-      specialty: 'ブロックチェーン技術、暗号学',
-      description: 'ダミー説明文です。',
-    },
-    {
-      name: '林 CEO',
-      affiliation: 'Web3スタートアップ代表',
-      specialty: '事業戦略、資金調達',
-      description: 'ダミー説明文です。',
-    },
-  ];
+  useEffect(() => {
+    const loadMembers = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchMembers();
+        const activeMembers = filterActiveItems(data);
+        const sortedMembers = sortByOrder(activeMembers);
+        setMembers(sortedMembers);
+      } catch (err) {
+        console.error('Error loading members:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const MemberCard: React.FC<{
-    name: string;
-    role: string;
-    specialty?: string;
-    affiliation?: string;
-    twitter?: string;
-    description: string;
-    isLeader?: boolean;
-  }> = ({ name, role, specialty, affiliation, twitter, description, isLeader = false }) => (
-    <div className={`bg-white p-4 md:p-6 rounded-lg shadow-sm ${isLeader ? 'border-2 border-gray-900' : ''}`}>
+    loadMembers();
+  }, []);
+
+  const MemberCard: React.FC<{ member: Member; isLeader?: boolean }> = ({ member, isLeader = false }) => (
+    <div className={`bg-white p-6 md:p-8 rounded-lg shadow-sm ${isLeader ? 'border-2 border-gray-900' : ''}`}>
       <div className="text-center mb-3 md:mb-4">
         <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 rounded-full mx-auto mb-3 md:mb-4"></div>
-        <h4 className="text-base sm:text-lg font-semibold text-gray-900">{name}</h4>
-        <p className="text-sm sm:text-base text-gray-600 font-medium">{role}</p>
-        {affiliation && <p className="text-xs sm:text-sm text-gray-500">{affiliation}</p>}
-        {specialty && <p className="text-xs sm:text-sm text-gray-500 mt-1">{specialty}</p>}
-        {twitter && (
+        <h4 className="text-base sm:text-lg font-semibold text-gray-900">
+          <Link
+            href={`/team/${member.slug}`}
+            className="text-gray-900"
+          >
+            {member.name}
+          </Link>
+        </h4>
+        <p className="text-sm sm:text-base text-gray-600 font-medium">{member.role}</p>
+        {member.affiliation && <p className="text-xs sm:text-sm text-gray-500">{member.affiliation}</p>}
+        {member.specialty && <p className="text-xs sm:text-sm text-gray-500 mt-1">{member.specialty}</p>}
+        {member.twitter && (
           <a
-            href={`https://x.com/${twitter.replace('@', '')}`}
+            href={`https://x.com/${member.twitter.replace('@', '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors mt-1 inline-block touch-manipulation"
+            className="text-xs sm:text-sm text-gray-600 mt-1 inline-block"
           >
-            {twitter}
+            {member.twitter}
           </a>
         )}
       </div>
-      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed text-center">
-        {description}
+      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed text-center mb-4">
+        {member.bio}
       </p>
       {isLeader && (
-        <div className="mt-3 md:mt-4 text-center">
-          <span className="inline-block bg-gray-900 text-white text-xs px-2 py-1 rounded">
+        <div className="text-center mb-3">
+          <span className="inline-block bg-gray-900 text-white text-xs px-3 py-1 rounded-full">
             代表
           </span>
         </div>
       )}
+      <div className="text-center">
+        <Link
+          href={`/team/${member.slug}`}
+          className="text-sm text-gray-900 font-medium"
+        >
+          詳細を見る →
+        </Link>
+      </div>
     </div>
   );
 
@@ -109,58 +91,93 @@ export const TeamSection: React.FC = () => {
           </p>
         </div>
 
-        {/* リーダー */}
-        <div className="mb-12 md:mb-16 px-4">
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
-            代表
-          </h3>
-          <div className="max-w-sm sm:max-w-md mx-auto">
-            <MemberCard
-              name={leader.name}
-              role={leader.role}
-              twitter={leader.twitter}
-              description={leader.description}
-              isLeader={true}
-            />
+        {loading ? (
+          <div className="animate-pulse px-4">
+            {/* Leader skeleton */}
+            <div className="mb-12">
+              <div className="h-6 bg-gray-200 rounded w-24 mx-auto mb-6"></div>
+              <div className="max-w-sm mx-auto">
+                <div className="bg-gray-200 h-64 rounded-lg"></div>
+              </div>
+            </div>
+            {/* Members skeleton */}
+            <div className="mb-12">
+              <div className="h-6 bg-gray-200 rounded w-32 mx-auto mb-6"></div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="bg-gray-200 h-64 rounded-lg"></div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            {/* リーダー */}
+            {leaders.length > 0 && (
+              <div className="mb-12 md:mb-16 px-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
+                  代表
+                </h3>
+                <div className="max-w-sm sm:max-w-md mx-auto">
+                  <MemberCard member={leaders[0]} isLeader={true} />
+                </div>
+              </div>
+            )}
 
-        {/* 運営メンバー */}
-        <div className="mb-12 md:mb-16 px-4">
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
-            運営メンバー
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {members.map((member, index) => (
-              <MemberCard
-                key={index}
-                name={member.name}
-                role={member.role}
-                specialty={member.specialty}
-                description={member.description}
-              />
-            ))}
-          </div>
-        </div>
+            {/* 運営メンバー */}
+            {regularMembers.length > 0 && (
+              <div className="mb-12 md:mb-16 px-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
+                  運営メンバー
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                  {regularMembers.map((member) => (
+                    <MemberCard key={member.id} member={member} />
+                  ))}
+                </div>
+              </div>
+            )}
 
-        {/* アドバイザー */}
-        <div className="px-4">
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
-            アドバイザー
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {advisors.map((advisor, index) => (
-              <MemberCard
-                key={index}
-                name={advisor.name}
-                role="アドバイザー"
-                affiliation={advisor.affiliation}
-                specialty={advisor.specialty}
-                description={advisor.description}
-              />
-            ))}
-          </div>
-        </div>
+            {/* アドバイザー */}
+            {advisors.length > 0 && (
+              <div className="mb-8 px-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
+                  アドバイザー
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
+                  {advisors.map((advisor) => (
+                    <MemberCard key={advisor.id} member={advisor} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* View More Button */}
+            {members.length > 6 && (
+              <div className="text-center mt-8 px-4">
+                <Link
+                  href="/team"
+                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  すべてのメンバーを見る
+                  <svg
+                    className="ml-2 w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </Section>
   );

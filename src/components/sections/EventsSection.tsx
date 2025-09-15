@@ -1,5 +1,9 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Section } from '../ui';
+import { Event, fetchEvents, filterActiveItems, sortByDate } from '../../utils';
 
 interface EventItem {
   date: string;
@@ -15,55 +19,29 @@ interface YearGroup {
 }
 
 export const EventsSection: React.FC = () => {
-  const events: YearGroup[] = [
-    {
-      year: '2025年',
-      items: [
-        {
-          date: '3月29日',
-          title: 'Web3＆AI超会議',
-          location: 'メルカリ東京オフィス・六本木ヒルズ',
-          description: '学生団体ニューラビットとの共催イベント',
-          participants: ['KDDI', 'メルカリ', 'Binance Japan', '野村ホールディングス', 'Google'],
-        },
-      ],
-    },
-    {
-      year: '2023年',
-      items: [
-        {
-          date: '1月29日',
-          title: '学生Web3&Metaverse超会議 第2弾',
-          location: 'WeCreate3初開催',
-          description: 'WeCreate3として初めて開催した大規模イベント',
-        },
-        {
-          date: '5月27日',
-          title: '学生Web3&Metaverse超会議 第3弾',
-          location: 'アクセンチュア・イノベーション・ハブ東京',
-          description: '衆議院議員 平将明氏が登壇',
-        },
-        {
-          date: '6月22日',
-          title: 'HR3 HACKATHON プレイベント',
-          location: '渋谷CryptoBase',
-          description: 'ハッカソンに向けた準備イベント',
-        },
-        {
-          date: '6月末',
-          title: '学生Web3&Metaverse超会議 in Kyoto',
-          location: 'IVS Crypto公式サイドイベント',
-          description: '京都で開催された特別イベント',
-        },
-        {
-          date: '9月24日',
-          title: 'WeCreate3主催web3勉強会',
-          location: 'Crypto Lounge GOX',
-          description: '基礎知識を学ぶ勉強会',
-        },
-      ],
-    },
-  ];
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Show only first 4 events on home page
+  const displayedEvents = events.slice(0, 4);
+
+  useEffect(() => {
+    const loadEvents = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchEvents();
+        const activeEvents = filterActiveItems(data);
+        const sortedEvents = sortByDate(activeEvents);
+        setEvents(sortedEvents);
+      } catch (err) {
+        console.error('Error loading events:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadEvents();
+  }, []);
 
   return (
     <Section id="events">
@@ -77,53 +55,103 @@ export const EventsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* イベント履歴 */}
-        <div className="space-y-8 md:space-y-12 mb-12 md:mb-16 px-4">
-          {events.map((yearGroup, yearIndex) => (
-            <div key={yearIndex}>
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 md:mb-8 text-center">
-                {yearGroup.year}
-              </h3>
-              <div className="space-y-4 md:space-y-6">
-                {yearGroup.items.map((event, eventIndex) => (
-                  <div key={eventIndex} className="bg-gray-50 p-4 md:p-6 rounded-lg">
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4">
-                      <div className="lg:col-span-1">
-                        <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">日付</div>
-                        <div className="text-sm sm:text-base font-semibold text-gray-900">{event.date}</div>
+        {loading ? (
+          <div className="animate-pulse space-y-6 px-4">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="bg-gray-200 h-32 rounded-lg"></div>
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* Recent Events */}
+            <div className="space-y-4 md:space-y-6 mb-12 md:mb-16 px-4">
+              {displayedEvents.map((event) => (
+                <div key={event.id} className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4">
+                    <div className="lg:col-span-1">
+                      <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">日付</div>
+                      <div className="text-sm sm:text-base font-semibold text-gray-900">
+                        {new Date(event.date).toLocaleDateString('ja-JP', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
                       </div>
-                      <div className="lg:col-span-2">
-                        <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">イベント名</div>
-                        <div className="text-sm sm:text-base font-semibold text-gray-900 mb-2">{event.title}</div>
-                        <div className="text-xs sm:text-sm text-gray-600 mb-2">{event.location}</div>
-                        <div className="text-xs sm:text-sm text-gray-600">{event.description}</div>
-                      </div>
-                      <div className="lg:col-span-1">
-                        {event.participants && (
-                          <div>
-                            <div className="text-xs sm:text-sm font-medium text-gray-500 mb-2">参加企業</div>
-                            <div className="flex flex-wrap gap-1">
-                              {event.participants.slice(0, 3).map((participant, pIndex) => (
-                                <span key={pIndex} className="text-xs bg-white px-2 py-1 rounded text-gray-600 touch-manipulation">
-                                  {participant}
-                                </span>
-                              ))}
-                              {event.participants.length > 3 && (
-                                <span className="text-xs text-gray-500">
-                                  +{event.participants.length - 3}社
-                                </span>
-                              )}
-                            </div>
+                      {event.featured && (
+                        <span className="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full mt-2">
+                          注目
+                        </span>
+                      )}
+                    </div>
+                    <div className="lg:col-span-2">
+                      <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">イベント名</div>
+                      <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-2">
+                        <Link
+                          href={`/events/${event.slug}`}
+                          className="text-gray-900"
+                        >
+                          {event.title}
+                        </Link>
+                      </h3>
+                      <div className="text-xs sm:text-sm text-gray-600 mb-2">{event.location}</div>
+                      <div className="text-xs sm:text-sm text-gray-600 mb-3">{event.description}</div>
+                      <Link
+                        href={`/events/${event.slug}`}
+                        className="text-xs sm:text-sm text-gray-900 font-medium"
+                      >
+                        詳細を見る →
+                      </Link>
+                    </div>
+                    <div className="lg:col-span-1">
+                      {event.participants && event.participants.length > 0 && (
+                        <div>
+                          <div className="text-xs sm:text-sm font-medium text-gray-500 mb-2">参加企業</div>
+                          <div className="flex flex-wrap gap-1">
+                            {event.participants.slice(0, 3).map((participant, pIndex) => (
+                              <span key={pIndex} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                                {participant}
+                              </span>
+                            ))}
+                            {event.participants.length > 3 && (
+                              <span className="text-xs text-gray-500">
+                                +{event.participants.length - 3}社
+                              </span>
+                            )}
                           </div>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* View More Button */}
+            {events.length > 4 && (
+              <div className="text-center mt-8 px-4">
+                <Link
+                  href="/events"
+                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  すべてのイベントを見る
+                  <svg
+                    className="ml-2 w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </Section>
   );

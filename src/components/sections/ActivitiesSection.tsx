@@ -1,29 +1,34 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Section } from '../ui';
+import { Activity, fetchActivities, filterActiveItems, sortByOrder } from '../../utils';
 
 export const ActivitiesSection: React.FC = () => {
-  const activities = [
-    {
-      title: '大規模イベント企画・運営',
-      description: '業界リーダーとの直接交流機会を提供し、最新技術動向の共有とネットワーキングの場を創出しています。',
-      features: ['業界リーダーとの交流', '最新技術動向の共有', 'ネットワーキング機会'],
-    },
-    {
-      title: '教育・啓発活動',
-      description: 'Web3・メタバースの基礎知識を普及し、初心者向けコンテンツや実践的ワークショップを開催しています。',
-      features: ['基礎知識普及', '初心者向けコンテンツ', '実践的ワークショップ'],
-    },
-    {
-      title: 'コミュニティ運営',
-      description: '全国学生ネットワークを構築し、業界プロフェッショナルとの橋渡しや継続的な学習・交流の場を提供しています。',
-      features: ['全国学生ネットワーク', '業界との橋渡し', '継続的な学習機会'],
-    },
-    {
-      title: '研究・開発支援',
-      description: 'ハッカソンや学生プロジェクトを支援し、実際のプロダクト開発を通じて実践的なスキル向上を図っています。',
-      features: ['ハッカソン支援', '学生プロジェクト支援', '実践的スキル向上'],
-    },
-  ];
+  const [activities, setActivities] = useState<Activity[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Show only first 3 activities on home page
+  const displayedActivities = activities.slice(0, 3);
+
+  useEffect(() => {
+    const loadActivities = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchActivities();
+        const activeActivities = filterActiveItems(data);
+        const sortedActivities = sortByOrder(activeActivities);
+        setActivities(sortedActivities);
+      } catch (err) {
+        console.error('Error loading activities:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadActivities();
+  }, []);
 
   return (
     <Section id="activities" background="gray">
@@ -38,34 +43,88 @@ export const ActivitiesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 px-4">
-          {activities.map((activity, index) => (
-            <div key={index} className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
-              <div className="mb-4 md:mb-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
-                  {activity.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {activity.description}
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 md:mb-3 uppercase tracking-wide">
-                  Key Features
-                </h4>
-                <div className="space-y-1.5 md:space-y-2">
-                  {activity.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center">
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 md:mr-3 flex-shrink-0"></div>
-                      <span className="text-xs sm:text-sm text-gray-600">{feature}</span>
+        {loading ? (
+          <div className="animate-pulse grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 px-4">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="bg-gray-200 h-64 rounded-lg"></div>
+            ))}
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 px-4">
+              {displayedActivities.map((activity) => (
+                <div key={activity.id} className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
+                  <div className="mb-4 md:mb-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs sm:text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                        {activity.category}
+                      </span>
                     </div>
-                  ))}
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
+                      <Link
+                        href={`/activities/${activity.slug}`}
+                        className="text-gray-900"
+                      >
+                        {activity.title}
+                      </Link>
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                      {activity.description}
+                    </p>
+                  </div>
+
+                  <div className="mb-4">
+                    <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 md:mb-3 uppercase tracking-wide">
+                      Key Features
+                    </h4>
+                    <div className="space-y-1.5 md:space-y-2">
+                      {activity.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 md:mr-3 flex-shrink-0"></div>
+                          <span className="text-xs sm:text-sm text-gray-600">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-100">
+                    <Link
+                      href={`/activities/${activity.slug}`}
+                      className="text-sm text-gray-900 font-medium"
+                    >
+                      詳細を見る →
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* View More Button */}
+            {activities.length > 3 && (
+              <div className="text-center mt-8 px-4">
+                <Link
+                  href="/activities"
+                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  すべての活動を見る
+                  <svg
+                    className="ml-2 w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </Section>
   );
