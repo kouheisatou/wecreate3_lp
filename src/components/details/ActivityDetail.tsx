@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Activity, ContentDetail, fetchActivityDetail, fetchActivities, getActivityImage } from '../../utils';
+import { Activity, ContentDetail, fetchActivityDetail, fetchActivities } from '../../utils';
+import { pickActivityImage } from '../../utils';
 
 interface ActivityDetailProps {
   slug: string;
@@ -91,7 +92,7 @@ export const ActivityDetail: React.FC<ActivityDetailProps> = ({ slug }) => {
       {/* Header */}
       <header className="mb-8 pb-8 border-b border-gray-200">
         <img
-          src={getActivityImage(activity.slug, 1200, 630)}
+          src={pickActivityImage(activity, detail)}
           alt={`${activity.title} のサムネイル`}
           className="w-full h-56 md:h-64 object-cover rounded-lg mb-6"
           loading="lazy"
@@ -160,6 +161,14 @@ export const ActivityDetail: React.FC<ActivityDetailProps> = ({ slug }) => {
               <p className="text-gray-700 leading-relaxed mb-4">
                 {children}
               </p>
+            ),
+            img: (props) => (
+              <img {...props} className="w-full h-auto rounded-lg my-4" loading="lazy" />
+            ),
+            a: ({ href, children }) => (
+              <a href={href as string} className="text-blue-600 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">
+                {children}
+              </a>
             ),
             ul: ({ children }) => (
               <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">

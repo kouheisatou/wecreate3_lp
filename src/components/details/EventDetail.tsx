@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Event, ContentDetail, fetchEventDetail, fetchEvents, getEventImage } from '../../utils';
+import { Event, ContentDetail, fetchEventDetail, fetchEvents } from '../../utils';
+import { pickEventImage } from '../../utils';
 
 interface EventDetailProps {
   slug: string;
@@ -100,7 +101,7 @@ export const EventDetail: React.FC<EventDetailProps> = ({ slug }) => {
       {/* Header */}
       <header className="mb-8 pb-8 border-b border-gray-200">
         <img
-          src={getEventImage(event.slug, 1200, 630)}
+          src={pickEventImage(event, detail)}
           alt={`${event.title} のサムネイル`}
           className="w-full h-56 md:h-64 object-cover rounded-lg mb-6"
           loading="lazy"
@@ -197,6 +198,14 @@ export const EventDetail: React.FC<EventDetailProps> = ({ slug }) => {
               <p className="text-gray-700 leading-relaxed mb-4">
                 {children}
               </p>
+            ),
+            img: (props) => (
+              <img {...props} className="w-full h-auto rounded-lg my-4" loading="lazy" />
+            ),
+            a: ({ href, children }) => (
+              <a href={href as string} className="text-blue-600 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">
+                {children}
+              </a>
             ),
             ul: ({ children }) => (
               <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
