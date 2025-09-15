@@ -3,6 +3,9 @@ export const SOCIAL_LINKS = {
   twitter: 'https://x.com/We_Create_3',
 } as const;
 
+// アプリ全体の basePath
+export const BASE_PATH = '/wecreate3_lp' as const;
+
 // 組織情報
 export const ORGANIZATION = {
   name: 'WeCreate3',
@@ -19,7 +22,7 @@ export const NAVIGATION_ITEMS = [
   { label: 'Activities', href: '#activities' },
   { label: 'Events', href: '#events' },
   { label: 'Team', href: '#team' },
-  { label: 'Join', href: '#join' },
+  // Join は削除
   { label: 'Contact', href: '#contact' },
 ] as const;
 

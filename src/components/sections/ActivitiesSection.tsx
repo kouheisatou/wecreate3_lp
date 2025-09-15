@@ -105,7 +105,7 @@ export const ActivitiesSection: React.FC = () => {
                 <Button
                   variant="unique"
                   size="md"
-                  href="/activities"
+                  href="/activities/"
                 >
                   すべての活動を見る
                   <svg

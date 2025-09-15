@@ -8,7 +8,6 @@ import {
   ActivitiesSection,
   EventsSection,
   TeamSection,
-  JoinSection,
   ContactSection,
 } from '../components/sections';
 
@@ -23,7 +22,6 @@ export default function Home() {
         <ActivitiesSection />
         <EventsSection />
         <TeamSection />
-        <JoinSection />
         <ContactSection />
       </main>
       <Footer />

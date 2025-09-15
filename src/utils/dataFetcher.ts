@@ -1,5 +1,6 @@
 import Papa from 'papaparse';
 import matter from 'gray-matter';
+import { BASE_PATH } from './constants';
 
 // Type definitions
 export interface Activity {
@@ -98,14 +99,15 @@ function parseCSVData<T>(csvText: string): T[] {
 
 // Generic fetch function
 async function fetchData(url: string): Promise<string> {
+  const target = url.startsWith('/') ? `${BASE_PATH}${url}` : url;
   try {
-    const response = await fetch(url);
+    const response = await fetch(target);
     if (!response.ok) {
-      throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+      throw new Error(`Failed to fetch ${target}: ${response.statusText}`);
     }
     return await response.text();
   } catch (error) {
-    console.error(`Error fetching data from ${url}:`, error);
+    console.error(`Error fetching data from ${target}:`, error);
     throw error;
   }
 }

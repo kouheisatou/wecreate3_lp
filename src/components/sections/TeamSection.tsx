@@ -158,7 +158,7 @@ export const TeamSection: React.FC = () => {
                 <Button
                   variant="unique"
                   size="md"
-                  href="/team"
+                  href="/team/"
                 >
                   すべてのメンバーを見る
                   <svg

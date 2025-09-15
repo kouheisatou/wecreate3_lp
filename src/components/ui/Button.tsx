@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -29,36 +30,46 @@ export const Button: React.FC<ButtonProps> = ({
     outline: 'border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white active:bg-gray-800 disabled:border-gray-400 disabled:text-gray-400 unique-button-outline',
     unique: 'bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 disabled:bg-gray-400 unique-button',
     neomorphic: 'text-gray-900 neomorphic-button hover:text-gray-800 disabled:text-gray-400',
-  };
-  
+  } as const;
+
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm min-h-[44px]',
     md: 'px-6 py-3 text-base min-h-[44px]',
     lg: 'px-8 py-4 text-lg min-h-[48px]',
-  };
-  
+  } as const;
+
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
   
   if (href) {
-    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      if (href.startsWith('#')) {
+    // ハッシュへのスムーズスクロール
+    if (href.startsWith('#')) {
+      const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
         const element = document.querySelector(href);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }
-      if (onClick) {
-        onClick();
-      }
-    };
+        if (onClick) onClick();
+      };
+      return (
+        <a href={href} className={classes} onClick={handleClick}>
+          {children}
+        </a>
+      );
+    }
 
+    // アプリ内リンクは Next.js Link を使用（basePath 対応）
+    if (href.startsWith('/')) {
+      return (
+        <Link href={href} className={classes} onClick={onClick}>
+          {children}
+        </Link>
+      );
+    }
+
+    // 外部リンク
     return (
-      <a
-        href={href}
-        className={classes}
-        onClick={handleClick}
-      >
+      <a href={href} className={classes} onClick={onClick}>
         {children}
       </a>
     );

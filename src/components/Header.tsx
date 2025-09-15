@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Container } from './ui';
-import { NAVIGATION_ITEMS, PAGE_NAVIGATION_ITEMS, ORGANIZATION, scrollToSection } from '../utils';
+import {NAVIGATION_ITEMS, PAGE_NAVIGATION_ITEMS, ORGANIZATION, scrollToSection, BASE_PATH} from '../utils';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,6 +12,9 @@ export const Header: React.FC = () => {
   const pathname = usePathname();
 
   const isHomePage = pathname === '/';
+  const normalizedPath = pathname?.startsWith(BASE_PATH)
+    ? pathname.slice(BASE_PATH.length) || '/'
+    : pathname;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +79,7 @@ export const Header: React.FC = () => {
                     key={item.label}
                     href={item.href}
                     className={`text-gray-700 hover:text-gray-900  text-sm font-medium py-2 px-1 ${
-                      pathname === item.href ? 'border-b-2 border-gray-900' : ''
+                      normalizedPath === item.href ? 'border-b-2 border-gray-900' : ''
                     }`}
                   >
                     {item.label}
@@ -151,7 +154,7 @@ export const Header: React.FC = () => {
                       key={item.label}
                       href={item.href}
                       className={`text-gray-700 hover:text-gray-900 hover:bg-gray-50  text-base font-medium py-3 px-4 rounded-md touch-manipulation ${
-                        pathname === item.href ? 'bg-gray-100' : ''
+                        normalizedPath === item.href ? 'bg-gray-100' : ''
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

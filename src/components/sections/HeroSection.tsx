@@ -2,12 +2,6 @@ import React from 'react';
 import { Button } from '../ui';
 
 export const HeroSection: React.FC = () => {
-    const stats = [
-        { number: '10+', label: '参加大学' },
-        { number: '10+', label: '参加サークル' },
-        { number: '複数回', label: 'イベント開催' },
-    ];
-
     return (
         <section id="hero" className="min-h-screen flex items-center justify-center marble-background-alt pt-16 md:pt-0">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

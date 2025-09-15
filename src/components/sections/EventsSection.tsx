@@ -132,7 +132,7 @@ export const EventsSection: React.FC = () => {
                 <Button
                   variant="unique"
                   size="md"
-                  href="/events"
+                  href="/events/"
                 >
                   すべてのイベントを見る
                   <svg
