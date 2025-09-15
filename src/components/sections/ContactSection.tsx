@@ -1,27 +1,28 @@
 import React from 'react';
 import { Section } from '../ui';
+import { CalendarDaysIcon, UserGroupIcon, NewspaperIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
 
 export const ContactSection: React.FC = () => {
   const contactTypes = [
     {
       title: 'イベント参加に関するご質問',
       description: 'イベントの詳細や参加方法についてお気軽にお問い合わせください。',
-      icon: '🎯',
+      icon: <CalendarDaysIcon className="w-6 h-6 text-gray-600" aria-hidden="true" />,
     },
     {
       title: 'コラボレーションのご提案',
       description: '一緒にイベントを企画したい、協力したいという団体・企業様からのご提案をお待ちしています。',
-      icon: '🤝',
+      icon: <UserGroupIcon className="w-6 h-6 text-gray-600" aria-hidden="true" />,
     },
     {
       title: 'メディア取材のご依頼',
       description: 'WeCreate3の活動について取材をご希望のメディア関係者様はこちらからお問い合わせください。',
-      icon: '📺',
+      icon: <NewspaperIcon className="w-6 h-6 text-gray-600" aria-hidden="true" />,
     },
     {
       title: 'パートナーシップのご相談',
       description: 'スポンサーシップや長期的なパートナーシップについてのご相談を承ります。',
-      icon: '🤝',
+      icon: <BriefcaseIcon className="w-6 h-6 text-gray-600" aria-hidden="true" />,
     },
   ];
 
@@ -48,9 +49,10 @@ export const ContactSection: React.FC = () => {
     <Section id="contact" background="gray">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4 unique-header">
             お問い合わせ
           </h2>
+          <div className="decorative-divider"></div>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             WeCreate3に関するご質問、ご提案、ご相談など、
             お気軽にお問い合わせください。
@@ -67,7 +69,7 @@ export const ContactSection: React.FC = () => {
               {contactTypes.map((type, index) => (
                 <div key={index} className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
                   <div className="flex items-start">
-                    <div className="text-xl md:text-2xl mr-3 md:mr-4 mt-1 flex-shrink-0">{type.icon}</div>
+                    <div className="mr-3 md:mr-4 mt-1 flex-shrink-0" aria-hidden="true">{type.icon}</div>
                     <div>
                       <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
                         {type.title}
@@ -91,7 +93,7 @@ export const ContactSection: React.FC = () => {
               </h3>
               <div className="space-y-3 md:space-y-4">
                 <div className="flex items-center">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-600 mr-2 md:mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-600 mr-2 md:mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                   <div>

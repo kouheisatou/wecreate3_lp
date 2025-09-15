@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Member, fetchMembers, filterActiveItems, sortByOrder } from '../../utils';
+import { Member, fetchMembers, filterActiveItems, sortByOrder, getMemberImage } from '../../utils';
 
 interface MemberCardProps {
   member: Member;
@@ -12,7 +12,12 @@ interface MemberCardProps {
 const MemberCard: React.FC<MemberCardProps> = ({ member, isLeader = false }) => (
   <div className={`bg-white p-6 md:p-8 rounded-lg shadow-sm ${isLeader ? 'border-2 border-gray-900' : ''}`}>
     <div className="text-center mb-3 md:mb-4">
-      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 rounded-full mx-auto mb-3 md:mb-4"></div>
+      <img
+        src={getMemberImage(member.slug, 128)}
+        alt={`${member.name} のプロフィール画像`}
+        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto mb-3 md:mb-4 object-cover"
+        loading="lazy"
+      />
       <h4 className="text-base sm:text-lg font-semibold text-gray-900">
         <Link
           href={`/team/${member.slug}`}

@@ -19,16 +19,13 @@ export const HeroSection: React.FC = () => {
                 <p className="text-lg sm:text-xl text-gray-500 max-w-4xl mx-auto mb-12 md:mb-16 leading-relaxed drop-shadow-sm px-4">
                     Web3とメタバースの認識拡大を目的に活動している学生団体。
                     <br className="hidden sm:block" />
-                    全国の大学生が集結し、新しいテクノロジーの可能性を創出しています。
+                    全国の大学生が結集し、新しいテクノロジーの可能性を創出しています。
                 </p>
 
                 {/* CTAボタン */}
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-16 md:mb-20 px-4">
                     <Button variant="unique" size="lg" href="#events" className="px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl touch-manipulation">
                         最新イベントに参加する
-                    </Button>
-                    <Button variant="unique" size="lg" href="#join" className="px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl touch-manipulation">
-                        コミュニティに参加する
                     </Button>
                 </div>
 

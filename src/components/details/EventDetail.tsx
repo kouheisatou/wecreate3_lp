@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Event, ContentDetail, fetchEventDetail, fetchEvents } from '../../utils';
+import { Event, ContentDetail, fetchEventDetail, fetchEvents, getEventImage } from '../../utils';
 
 interface EventDetailProps {
   slug: string;
@@ -48,6 +48,7 @@ export const EventDetail: React.FC<EventDetailProps> = ({ slug }) => {
       <div className="animate-pulse">
         {/* Header skeleton */}
         <div className="mb-8 pb-8 border-b border-gray-200">
+          <div className="h-48 bg-gray-200 rounded w-full mb-6"></div>
           <div className="flex gap-2 mb-4">
             <div className="h-4 bg-gray-200 rounded w-16"></div>
             <div className="h-4 bg-gray-200 rounded w-20"></div>
@@ -98,6 +99,12 @@ export const EventDetail: React.FC<EventDetailProps> = ({ slug }) => {
     <article className="max-w-4xl mx-auto">
       {/* Header */}
       <header className="mb-8 pb-8 border-b border-gray-200">
+        <img
+          src={getEventImage(event.slug, 1200, 630)}
+          alt={`${event.title} のサムネイル`}
+          className="w-full h-56 md:h-64 object-cover rounded-lg mb-6"
+          loading="lazy"
+        />
         <div className="flex items-center gap-2 mb-4">
           <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
             {event.year}年

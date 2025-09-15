@@ -21,11 +21,12 @@ export const AboutSection: React.FC = () => {
     <Section id="about" background="gray">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4 unique-header">
             WeCreate3について
           </h2>
+          <div className="decorative-divider"></div>
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed px-4">
-            2022年7月設立。各大学の学生団体が集結し、Web3とメタバースの認識拡大と可能性創出を目的として活動する日本最大の学生Web3コミュニティです。
+            2022年7月設立。各大学の学生団体が結集し、Web3とメタバースの認識拡大と可能性創出を目的として活動する日本最大の学生Web3コミュニティです。
           </p>
         </div>
 

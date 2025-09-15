@@ -3,53 +3,62 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Activity, fetchActivities, filterActiveItems, sortByOrder } from '../../utils';
+import { getActivityImage } from '../../utils';
 
 interface ActivityCardProps {
   activity: Activity;
 }
 
 const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => (
-  <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
-    <div className="mb-4 md:mb-6">
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-xs sm:text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-          {activity.category}
-        </span>
+  <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+    <img
+      src={getActivityImage(activity.slug, 1200, 630)}
+      alt={`${activity.title} のサムネイル`}
+      className="w-full h-40 object-cover"
+      loading="lazy"
+    />
+    <div className="p-6 md:p-8">
+      <div className="mb-4 md:mb-6">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs sm:text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+            {activity.category}
+          </span>
+        </div>
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
+          <Link
+            href={`/activities/${activity.slug}`}
+            className="text-gray-900 hover:text-gray-700"
+          >
+            {activity.title}
+          </Link>
+        </h3>
+        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+          {activity.description}
+        </p>
       </div>
-      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
+
+      <div className="mb-4">
+        <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 md:mb-3 uppercase tracking-wide">
+          Key Features
+        </h4>
+        <div className="space-y-1.5 md:space-y-2">
+          {activity.features.map((feature, index) => (
+            <div key={index} className="flex items-center">
+              <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 md:mr-3 flex-shrink-0"></div>
+              <span className="text-xs sm:text-sm text-gray-600">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="pt-4 border-t border-gray-100">
         <Link
           href={`/activities/${activity.slug}`}
-          className="text-gray-900 hover:text-gray-700"
+          className="text-sm text-gray-900 font-medium hover:text-gray-700"
         >
-          {activity.title}
+          詳細を見る →
         </Link>
-      </h3>
-      <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
-        {activity.description}
-      </p>
-    </div>
-
-    <div className="mb-4">
-      <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 md:mb-3 uppercase tracking-wide">
-        Key Features
-      </h4>
-      <div className="space-y-1.5 md:space-y-2">
-        {activity.features.map((feature, index) => (
-          <div key={index} className="flex items-center">
-            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 md:mr-3 flex-shrink-0"></div>
-            <span className="text-xs sm:text-sm text-gray-600">{feature}</span>
-          </div>
-        ))}
       </div>
-    </div>
-
-    <div className="pt-4 border-t border-gray-100">
-      <Link
-        href={`/activities/${activity.slug}`}
-        className="text-sm text-gray-900 font-medium hover:text-gray-700"
-      >
-        詳細を見る →
-      </Link>
     </div>
   </div>
 );

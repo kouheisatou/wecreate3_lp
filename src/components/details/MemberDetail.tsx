@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Member, ContentDetail, fetchMemberProfile, fetchMembers } from '../../utils';
+import { getMemberImage } from '../../utils';
 
 interface MemberDetailProps {
   slug: string;
@@ -97,7 +98,12 @@ export const MemberDetail: React.FC<MemberDetailProps> = ({ slug }) => {
       {/* Profile Header */}
       <header className="text-center mb-8 pb-8 border-b border-gray-200">
         {/* Profile Image */}
-        <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gray-200 rounded-full mx-auto mb-6"></div>
+        <img
+          src={getMemberImage(member.slug, 160)}
+          alt={`${member.name} のプロフィール画像`}
+          className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-6 object-cover"
+          loading="lazy"
+        />
 
         {/* Name and Role */}
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">

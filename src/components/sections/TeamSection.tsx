@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Section, Button } from '../ui';
-import { Member, fetchMembers, filterActiveItems, sortByOrder } from '../../utils';
+import { Member, fetchMembers, filterActiveItems, sortByOrder, getMemberImage } from '../../utils';
 
 export const TeamSection: React.FC = () => {
   const [members, setMembers] = useState<Member[]>([]);
@@ -35,7 +35,12 @@ export const TeamSection: React.FC = () => {
   const MemberCard: React.FC<{ member: Member; isLeader?: boolean }> = ({ member, isLeader = false }) => (
     <div className={`bg-white p-6 md:p-8 rounded-lg shadow-sm ${isLeader ? 'border-2 border-gray-900' : ''}`}>
       <div className="text-center mb-3 md:mb-4">
-        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 rounded-full mx-auto mb-3 md:mb-4"></div>
+        <img
+          src={getMemberImage(member.slug, 128)}
+          alt={`${member.name} のプロフィール画像`}
+          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto mb-3 md:mb-4 object-cover"
+          loading="lazy"
+        />
         <h4 className="text-base sm:text-lg font-semibold text-gray-900">
           <Link
             href={`/team/${member.slug}`}
@@ -83,9 +88,10 @@ export const TeamSection: React.FC = () => {
     <Section id="team" background="gray">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 px-4 unique-header">
             運営メンバー
           </h2>
+          <div className="decorative-divider"></div>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             多様なバックグラウンドを持つメンバーが、それぞれの専門性を活かしてWeCreate3の活動を支えています。
           </p>

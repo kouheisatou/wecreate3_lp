@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Activity, ContentDetail, fetchActivityDetail, fetchActivities } from '../../utils';
+import { Activity, ContentDetail, fetchActivityDetail, fetchActivities, getActivityImage } from '../../utils';
 
 interface ActivityDetailProps {
   slug: string;
@@ -48,6 +48,7 @@ export const ActivityDetail: React.FC<ActivityDetailProps> = ({ slug }) => {
       <div className="animate-pulse">
         {/* Header skeleton */}
         <div className="mb-8 pb-8 border-b border-gray-200">
+          <div className="h-48 bg-gray-200 rounded w-full mb-6"></div>
           <div className="h-4 bg-gray-200 rounded w-24 mb-4"></div>
           <div className="h-10 bg-gray-200 rounded w-3/4 mb-4"></div>
           <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
@@ -89,6 +90,12 @@ export const ActivityDetail: React.FC<ActivityDetailProps> = ({ slug }) => {
     <article className="max-w-4xl mx-auto">
       {/* Header */}
       <header className="mb-8 pb-8 border-b border-gray-200">
+        <img
+          src={getActivityImage(activity.slug, 1200, 630)}
+          alt={`${activity.title} のサムネイル`}
+          className="w-full h-56 md:h-64 object-cover rounded-lg mb-6"
+          loading="lazy"
+        />
         <div className="flex items-center gap-2 mb-4">
           <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
             {activity.category}
