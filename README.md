@@ -185,7 +185,7 @@ new-event-2025,新しいイベント,new-event-2025,2025-04-15,2025,東京,イ�
 
 ```markdown
 ---
-title: "新しいイベント"
+# CSVにない追加情報のみ記載（重複を避ける）
 cover: "/images/events/new-event-2025.jpg"
 ---
 
@@ -193,8 +193,7 @@ cover: "/images/events/new-event-2025.jpg"
 
 イベントの詳細な説明をここに記載します。
 
-- 開催日: 2025年4月15日
-- 会場: 東京
+![イベント会場](https://picsum.photos/seed/event-venue/1200/700)
 
 # プログラム
 
@@ -207,6 +206,8 @@ cover: "/images/events/new-event-2025.jpg"
 - 最新技術の学習
 - ネットワーキング
 - 実践的な知識の習得
+
+![ネットワーキングの様子](https://picsum.photos/seed/event-networking/1200/700)
 
 # 参加方法
 
@@ -242,14 +243,15 @@ new-activity,新しい活動,new-activity,カテゴリ,活動の説明,特徴1|�
 
 ```markdown
 ---
-title: "新しい活動"
+# CSVにない追加情報のみ記載
 cover: "/images/activities/new-activity.jpg"
-category: "カテゴリ"
 ---
 
 # 活動概要
 
 詳細な活動内容を記載...
+
+![活動の様子](https://picsum.photos/seed/activity-image/1200/700)
 
 # 主な取り組み
 
@@ -283,16 +285,14 @@ new-member,新メンバー,new-member,役職,member,専門分野,所属,@twitter
 
 ```markdown
 ---
-name: "新メンバー"
-role: "役職"
-image: "/images/team/new-member.jpg"
-twitter: "@twitter_handle"
-email: "email@example.com"
+# CSVにない追加情報のみ記載
 ---
 
 # プロフィール
 
 詳細なプロフィール情報...
+
+![プロフィール写真](https://picsum.photos/seed/member-photo/400/400)
 
 # 経歴
 
@@ -302,6 +302,11 @@ email: "email@example.com"
 # メッセージ
 
 メンバーからのメッセージ...
+
+# 関連リンク
+
+- [個人サイト](https://example.com)
+- [GitHub](https://github.com/username)
 ```
 
 ### 🎨 画像管理のガイドライン
@@ -341,6 +346,49 @@ public/images/
 
 4. **日付形式**
    - すべての日付は `YYYY-MM-DD` 形式で統一
+
+### 💡 効率化のためのヒント
+
+#### Markdownファイルの簡素化
+
+CSVとMarkdownファイルで情報が重複するのを避けるため、Markdownファイルのfront-matterは最小限に抑えることを推奨します：
+
+**推奨する書き方：**
+```markdown
+---
+# CSVにない追加情報のみ記載
+cover: "/images/events/event-name.jpg"
+---
+
+# 概要
+
+詳細な説明をここに記載...
+```
+
+**避けるべき書き方：**
+```markdown
+---
+title: "イベント名"  # ← CSVと重複
+date: "2025-04-15"  # ← CSVと重複
+location: "東京"    # ← CSVと重複
+---
+```
+
+#### 一括更新時の効率化
+
+複数のコンテンツを追加する際は：
+
+1. **CSVファイルを先に完成させる** - 一覧データを整理
+2. **Markdownファイルは詳細コンテンツのみ** - 重複情報は省略
+3. **画像は最後にまとめて追加** - 一括処理で効率化
+
+#### 将来的な改善案
+
+現在のCSV+Markdown方式から、以下への移行を検討中：
+
+- **Headless CMS** (Strapi, Contentful等) の導入
+- **MDX形式** での統合管理
+- **JSON形式** でのデータ管理
 
 ### 🔄 更新後の確認手順
 

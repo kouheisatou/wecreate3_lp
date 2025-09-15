@@ -1,0 +1,11 @@
+id,name,slug,description,logo_url,website_url,category,status,order,created_at,updated_at
+tech-corp,テックコーポレーション,tech-corp,最先端のWeb3技術開発を支援する企業,/images/sponsors/platinum-tech.jpg,https://example.com/tech-corp,Technology,active,1,2023-01-01,2024-01-01
+crypto-solutions,クリプトソリューションズ,crypto-solutions,ブロックチェーン技術の普及に貢献,/images/sponsors/gold-crypto.jpg,https://example.com/crypto-solutions,Blockchain,active,2,2023-01-01,2024-01-01
+metaverse-labs,メタバースラボ,metaverse-labs,メタバース分野のイノベーション推進,/images/sponsors/gold-meta.jpg,https://example.com/metaverse-labs,Metaverse,active,3,2023-01-01,2024-01-01
+web3-edu,Web3エデュケーション,web3-edu,Web3教育プログラムの提供,/images/sponsors/silver-web3.jpg,https://example.com/web3-edu,Education,active,4,2023-01-01,2024-01-01
+developer-hub,デベロッパーハブ,developer-hub,開発者コミュニティの支援,/images/sponsors/silver-dev.jpg,https://example.com/developer-hub,Developer,active,5,2023-01-01,2024-01-01
+startup-incubator,スタートアップインキュベーター,startup-incubator,スタートアップエコシステムの構築,/images/sponsors/bronze-startup.jpg,https://example.com/startup-incubator,Startup,active,6,2023-01-01,2024-01-01
+design-studio,デザインスタジオ,design-studio,UI/UXデザインサービス,/images/sponsors/bronze-design.jpg,https://example.com/design-studio,Design,active,7,2023-01-01,2024-01-01
+community-partner,コミュニティパートナーズ,community-partner,学生コミュニティの応援,,,Community,active,8,2023-01-01,2024-01-01
+innovation-lab,イノベーションラボラトリー,innovation-lab,次世代技術の研究開発支援,,,Research,active,9,2023-01-01,2024-01-01
+future-tech,フューチャーテック株式会社,future-tech,未来技術の開発サポート,/images/sponsors/non-existent-logo.jpg,https://example.com/future-tech,Technology,active,10,2023-01-01,2024-01-01

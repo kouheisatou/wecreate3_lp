@@ -41,9 +41,28 @@ export interface Member {
   specialty?: string;
   affiliation?: string;
   twitter?: string;
+  github?: string;
+  linkedin?: string;
+  facebook?: string;
+  instagram?: string;
+  website?: string;
   email?: string;
   bio: string;
   image_url: string;
+  status: string;
+  order: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Sponsor {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  logo_url: string;
+  website_url?: string;
+  category: string;
   status: string;
   order: number;
   created_at: string;
@@ -128,9 +147,14 @@ export async function fetchMembers(): Promise<Member[]> {
   return parseCSVData<Member>(csvText);
 }
 
-// Markdown detail fetchers
+export async function fetchSponsors(): Promise<Sponsor[]> {
+  const csvText = await fetchData('/data/sponsors/sponsors.csv');
+  return parseCSVData<Sponsor>(csvText);
+}
+
+// Markdown detail fetchers - 新しいディレクトリ構造に対応
 export async function fetchActivityDetail(slug: string): Promise<ContentDetail> {
-  const markdownText = await fetchData(`/data/activities/details/${slug}.md`);
+  const markdownText = await fetchData(`/data/activities/items/${slug}/index.md`);
   const parsed = matter(markdownText);
 
   return {
@@ -141,7 +165,7 @@ export async function fetchActivityDetail(slug: string): Promise<ContentDetail> 
 }
 
 export async function fetchEventDetail(slug: string): Promise<ContentDetail> {
-  const markdownText = await fetchData(`/data/events/details/${slug}.md`);
+  const markdownText = await fetchData(`/data/events/items/${slug}/index.md`);
   const parsed = matter(markdownText);
 
   return {
@@ -152,7 +176,7 @@ export async function fetchEventDetail(slug: string): Promise<ContentDetail> {
 }
 
 export async function fetchMemberProfile(slug: string): Promise<ContentDetail> {
-  const markdownText = await fetchData(`/data/team/profiles/${slug}.md`);
+  const markdownText = await fetchData(`/data/team/items/${slug}/index.md`);
   const parsed = matter(markdownText);
 
   return {

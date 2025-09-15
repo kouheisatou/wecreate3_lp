@@ -1,9 +1,9 @@
-id,name,slug,role,type,specialty,affiliation,twitter,email,bio,image_url,status,order,created_at,updated_at
-yano-taiga,矢野 大雅,yano-taiga,WeCreate3 代表,leader,,,@NFT_taiga,,学生Web3コミュニティのパイオニア,,active,1,2023-01-01,2024-01-01
-tanaka-taro,田中 太郎,tanaka-taro,イベント企画責任者,member,イベントプロデュース、コミュニティマネジメント,,,tanaka@example.com,大規模イベントの企画運営を得意とする,,active,2,2023-01-01,2024-01-01
-sato-hanako,佐藤 花子,sato-hanako,マーケティング・広報担当,member,デジタルマーケティング、SNS運用,,,sato@example.com,SNSを活用した効果的な広報戦略を立案,,active,3,2023-01-01,2024-01-01
-suzuki-ichiro,鈴木 一郎,suzuki-ichiro,技術・開発担当,member,ブロックチェーン開発、スマートコントラクト,,,suzuki@example.com,実践的な技術開発をリードする,,active,4,2023-01-01,2024-01-01
-takahashi-misaki,高橋 美咲,takahashi-misaki,パートナーシップ担当,member,企業連携、ビジネス開発,,,takahashi@example.com,企業との戦略的パートナーシップを構築,,active,5,2023-01-01,2024-01-01
-nakamura-kenta,中村 健太,nakamura-kenta,教育・コンテンツ担当,member,教育プログラム設計、コンテンツ制作,,,nakamura@example.com,学習効果の高い教育プログラムを設計,,active,6,2023-01-01,2024-01-01
-yamada-hakase,山田 博士,yamada-hakase,アドバイザー,advisor,ブロックチェーン技術、暗号学,某大学教授,,yamada@university.ac.jp,学術的視点からのアドバイザリー,,active,7,2023-01-01,2024-01-01
-hayashi-ceo,林 CEO,hayashi-ceo,アドバイザー,advisor,事業戦略、資金調達,Web3スタートアップ代表,,hayashi@startup.com,ビジネス戦略とスタートアップ経験,,active,8,2023-01-01,2024-01-01
+id,name,slug,role,type,specialty,affiliation,twitter,github,linkedin,facebook,instagram,website,email,bio,image_url,status,order,created_at,updated_at
+yano-taiga,矢野 大雅,yano-taiga,WeCreate3 代表,leader,,,@NFT_taiga,yano-taiga,yano-taiga,,,https://yanotaiga.com,,学生Web3コミュニティのパイオニア,,active,1,2023-01-01,2024-01-01
+tanaka-taro,田中 太郎,tanaka-taro,イベント企画責任者,member,イベントプロデュース、コミュニティマネジメント,,@tanaka_events,tanaka-taro,tanaka-taro,,,https://tanaka-events.com,tanaka@example.com,大規模イベントの企画運営を得意とする,,active,2,2023-01-01,2024-01-01
+sato-hanako,佐藤 花子,sato-hanako,マーケティング・広報担当,member,デジタルマーケティング、SNS運用,,@sato_marketing,,sato-hanako,,,https://sato-marketing.com,sato@example.com,SNSを活用した効果的な広報戦略を立案,,active,3,2023-01-01,2024-01-01
+suzuki-ichiro,鈴木 一郎,suzuki-ichiro,技術・開発担当,member,ブロックチェーン開発、スマートコントラクト,,,suzuki-dev,suzuki-ichiro,,,https://dev.suzuki.com,suzuki@example.com,実践的な技術開発をリードする,,active,4,2023-01-01,2024-01-01
+takahashi-misaki,高橋 美咲,takahashi-misaki,パートナーシップ担当,member,企業連携、ビジネス開発,,@misaki_business,,takahashi-misaki,,,https://business.takahashi.com,takahashi@example.com,企業との戦略的パートナーシップを構築,,active,5,2023-01-01,2024-01-01
+nakamura-kenta,中村 健太,nakamura-kenta,教育・コンテンツ担当,member,教育プログラム設計、コンテンツ制作,,,,nakamura-kenta,,,https://education.nakamura.com,nakamura@example.com,学習効果の高い教育プログラムを設計,,active,6,2023-01-01,2024-01-01
+yamada-hakase,山田 博士,yamada-hakase,アドバイザー,advisor,ブロックチェーン技術、暗号学,某大学教授,,,yamada-prof,,,https://prof.yamada.ac.jp,yamada@university.ac.jp,学術的視点からのアドバイザリー,,active,7,2023-01-01,2024-01-01
+hayashi-ceo,林 CEO,hayashi-ceo,アドバイザー,advisor,事業戦略、資金調達,Web3スタートアップ代表,@hayashi_ceo,,hayashi-ceo,,,https://startup.hayashi.com,hayashi@startup.com,ビジネス戦略とスタートアップ経験,,active,8,2023-01-01,2024-01-01

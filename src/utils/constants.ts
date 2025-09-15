@@ -22,7 +22,7 @@ export const NAVIGATION_ITEMS = [
   { label: 'Activities', href: '#activities' },
   { label: 'Events', href: '#events' },
   { label: 'Team', href: '#team' },
-  // Join は削除
+  { label: 'Sponsors', href: '#sponsors' },
   { label: 'Contact', href: '#contact' },
 ] as const;
 
@@ -31,4 +31,5 @@ export const PAGE_NAVIGATION_ITEMS = [
   { label: '活動一覧', href: '/activities' },
   { label: 'イベント実績', href: '/events' },
   { label: '運営メンバー', href: '/team' },
+  { label: 'スポンサー', href: '/sponsors' },
 ] as const;

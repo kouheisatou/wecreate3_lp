@@ -1,6 +1,4 @@
 import React from 'react';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import {
   HeroSection,
   AboutSection,
@@ -8,23 +6,21 @@ import {
   ActivitiesSection,
   EventsSection,
   TeamSection,
+  SponsorsSection,
   ContactSection,
 } from '../components/sections';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <MissionSection />
-        <ActivitiesSection />
-        <EventsSection />
-        <TeamSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <HeroSection />
+      <AboutSection />
+      <MissionSection />
+      <ActivitiesSection />
+      <EventsSection />
+      <TeamSection />
+      <SponsorsSection />
+      <ContactSection />
+    </>
   );
 }
