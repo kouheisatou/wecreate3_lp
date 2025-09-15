@@ -24,8 +24,8 @@ export const HeroSection: React.FC = () => {
 
                 {/* CTAボタン */}
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-16 md:mb-20 px-4">
-                    <Button variant="unique" size="lg" href="#events" className="px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl touch-manipulation">
-                        最新イベントに参加する
+                    <Button variant="unique" size="lg" href="#about" className="px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl touch-manipulation">
+                        詳しく見る
                     </Button>
                 </div>
 

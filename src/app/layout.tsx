@@ -44,10 +44,12 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <Header />
-          <Breadcrumb />
-          <main className="flex-1 pt-16">
-            {children}
-          </main>
+          <div className="pt-16">
+            <Breadcrumb />
+            <main className="flex-1">
+              {children}
+            </main>
+          </div>
           <Footer />
         </div>
       </body>

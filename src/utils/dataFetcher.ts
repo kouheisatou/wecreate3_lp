@@ -152,9 +152,9 @@ export async function fetchSponsors(): Promise<Sponsor[]> {
   return parseCSVData<Sponsor>(csvText);
 }
 
-// Markdown detail fetchers - 新しいディレクトリ構造に対応
+// Markdown detail fetchers
 export async function fetchActivityDetail(slug: string): Promise<ContentDetail> {
-  const markdownText = await fetchData(`/data/activities/items/${slug}/index.md`);
+  const markdownText = await fetchData(`/data/activities/details/${slug}.md`);
   const parsed = matter(markdownText);
 
   return {
@@ -165,7 +165,7 @@ export async function fetchActivityDetail(slug: string): Promise<ContentDetail> 
 }
 
 export async function fetchEventDetail(slug: string): Promise<ContentDetail> {
-  const markdownText = await fetchData(`/data/events/items/${slug}/index.md`);
+  const markdownText = await fetchData(`/data/events/details/${slug}.md`);
   const parsed = matter(markdownText);
 
   return {
@@ -176,7 +176,7 @@ export async function fetchEventDetail(slug: string): Promise<ContentDetail> {
 }
 
 export async function fetchMemberProfile(slug: string): Promise<ContentDetail> {
-  const markdownText = await fetchData(`/data/team/items/${slug}/index.md`);
+  const markdownText = await fetchData(`/data/team/profiles/${slug}.md`);
   const parsed = matter(markdownText);
 
   return {
