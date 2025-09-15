@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Section } from '../ui';
+import { Section, Button } from '../ui';
 import { Member, fetchMembers, filterActiveItems, sortByOrder } from '../../utils';
 
 export const TeamSection: React.FC = () => {
@@ -39,7 +39,7 @@ export const TeamSection: React.FC = () => {
         <h4 className="text-base sm:text-lg font-semibold text-gray-900">
           <Link
             href={`/team/${member.slug}`}
-            className="text-gray-900"
+            className="text-gray-900 hover:text-gray-700"
           >
             {member.name}
           </Link>
@@ -71,7 +71,7 @@ export const TeamSection: React.FC = () => {
       <div className="text-center">
         <Link
           href={`/team/${member.slug}`}
-          className="text-sm text-gray-900 font-medium"
+          className="text-sm text-gray-900 font-medium hover:text-gray-700"
         >
           詳細を見る →
         </Link>
@@ -155,9 +155,10 @@ export const TeamSection: React.FC = () => {
             {/* View More Button */}
             {members.length > 6 && (
               <div className="text-center mt-8 px-4">
-                <Link
+                <Button
+                  variant="unique"
+                  size="md"
                   href="/team"
-                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
                 >
                   すべてのメンバーを見る
                   <svg
@@ -173,7 +174,7 @@ export const TeamSection: React.FC = () => {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </Link>
+                </Button>
               </div>
             )}
           </>

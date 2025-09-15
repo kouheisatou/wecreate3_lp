@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Section } from '../ui';
+import { Section, Button } from '../ui';
 import { Event, fetchEvents, filterActiveItems, sortByDate } from '../../utils';
 
 interface EventItem {
@@ -129,9 +129,10 @@ export const EventsSection: React.FC = () => {
             {/* View More Button */}
             {events.length > 4 && (
               <div className="text-center mt-8 px-4">
-                <Link
+                <Button
+                  variant="unique"
+                  size="md"
                   href="/events"
-                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
                 >
                   すべてのイベントを見る
                   <svg
@@ -147,7 +148,7 @@ export const EventsSection: React.FC = () => {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </Link>
+                </Button>
               </div>
             )}
           </>

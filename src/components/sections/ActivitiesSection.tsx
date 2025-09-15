@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Section } from '../ui';
+import { Section, Button } from '../ui';
 import { Activity, fetchActivities, filterActiveItems, sortByOrder } from '../../utils';
 
 export const ActivitiesSection: React.FC = () => {
@@ -102,9 +102,10 @@ export const ActivitiesSection: React.FC = () => {
             {/* View More Button */}
             {activities.length > 3 && (
               <div className="text-center mt-8 px-4">
-                <Link
+                <Button
+                  variant="unique"
+                  size="md"
                   href="/activities"
-                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
                 >
                   すべての活動を見る
                   <svg
@@ -120,7 +121,7 @@ export const ActivitiesSection: React.FC = () => {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </Link>
+                </Button>
               </div>
             )}
           </>

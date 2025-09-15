@@ -34,7 +34,7 @@ export default async function MemberDetailPage({ params }: MemberDetailPageProps
           <div className="mb-8">
             <Link
               href="/team"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-gray-600 hover:text-gray-900"
             >
               ← メンバー一覧に戻る
             </Link>

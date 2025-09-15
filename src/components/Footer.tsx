@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
                 href={SOCIAL_LINKS.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors touch-manipulation"
+                className="text-gray-400 hover:text-white  touch-manipulation"
                 aria-label="X (旧Twitter)"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm md:text-base touch-manipulation py-1 block"
+                    className="text-gray-300 hover:text-white  text-sm md:text-base touch-manipulation py-1 block"
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(link.href);
@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
                   href={SOCIAL_LINKS.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base touch-manipulation"
+                  className="text-gray-300 hover:text-white  text-sm md:text-base touch-manipulation"
                 >
 {ORGANIZATION.twitterHandle}
                 </a>
@@ -100,14 +100,14 @@ export const Footer: React.FC = () => {
             <div className="flex space-x-4 md:space-x-6 text-xs md:text-sm">
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors touch-manipulation py-1"
+                className="text-gray-400 hover:text-white  touch-manipulation py-1"
                 onClick={(e) => e.preventDefault()}
               >
                 プライバシーポリシー
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors touch-manipulation py-1"
+                className="text-gray-400 hover:text-white  touch-manipulation py-1"
                 onClick={(e) => e.preventDefault()}
               >
                 利用規約

@@ -100,7 +100,7 @@ export const ContactSection: React.FC = () => {
                       href="https://x.com/We_Create_3"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-gray-900 transition-colors text-sm sm:text-base touch-manipulation"
+                      className="text-gray-600 hover:text-gray-900 text-sm sm:text-base touch-manipulation"
                     >
                       @We_Create_3
                     </a>

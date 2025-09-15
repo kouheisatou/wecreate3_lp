@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center">
             <Link
               href="/"
-              className="text-xl md:text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
+              className="text-xl md:text-2xl font-bold text-gray-900 hover:text-gray-700"
             >
               {ORGANIZATION.name}
             </Link>
@@ -53,7 +53,7 @@ export const Header: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium py-2 px-1"
+                  className="text-gray-700 hover:text-gray-900  text-sm font-medium py-2 px-1"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(item.href);
@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
               <>
                 <Link
                   href="/"
-                  className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium py-2 px-1"
+                  className="text-gray-700 hover:text-gray-900  text-sm font-medium py-2 px-1"
                 >
                   Home
                 </Link>
@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium py-2 px-1 ${
+                    className={`text-gray-700 hover:text-gray-900  text-sm font-medium py-2 px-1 ${
                       pathname === item.href ? 'border-b-2 border-gray-900' : ''
                     }`}
                   >
@@ -127,7 +127,7 @@ export const Header: React.FC = () => {
                   <a
                     key={item.label}
                     href={item.href}
-                    className="text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors text-base font-medium py-3 px-4 rounded-md touch-manipulation"
+                    className="text-gray-700 hover:text-gray-900 hover:bg-gray-50  text-base font-medium py-3 px-4 rounded-md touch-manipulation"
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item.href);
@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
                 <>
                   <Link
                     href="/"
-                    className="text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors text-base font-medium py-3 px-4 rounded-md touch-manipulation"
+                    className="text-gray-700 hover:text-gray-900 hover:bg-gray-50  text-base font-medium py-3 px-4 rounded-md touch-manipulation"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Home
@@ -150,7 +150,7 @@ export const Header: React.FC = () => {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className={`text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors text-base font-medium py-3 px-4 rounded-md touch-manipulation ${
+                      className={`text-gray-700 hover:text-gray-900 hover:bg-gray-50  text-base font-medium py-3 px-4 rounded-md touch-manipulation ${
                         pathname === item.href ? 'bg-gray-100' : ''
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}

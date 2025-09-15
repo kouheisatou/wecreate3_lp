@@ -32,7 +32,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
           <div className="mb-8">
             <Link
               href="/events"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-gray-600 hover:text-gray-900 "
             >
               ← イベント一覧に戻る
             </Link>

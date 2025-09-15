@@ -21,7 +21,7 @@ export default function ActivitiesPage() {
           <div className="mb-8">
             <Link
               href="/"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-gray-600 hover:text-gray-900 "
             >
               ← トップページに戻る
             </Link>

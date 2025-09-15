@@ -16,7 +16,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, isLeader = false }) => 
       <h4 className="text-base sm:text-lg font-semibold text-gray-900">
         <Link
           href={`/team/${member.slug}`}
-          className="text-gray-900"
+          className="text-gray-900 hover:text-gray-700"
         >
           {member.name}
         </Link>
@@ -52,7 +52,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, isLeader = false }) => 
     <div className="text-center">
       <Link
         href={`/team/${member.slug}`}
-        className="text-sm text-gray-900 font-medium"
+        className="text-sm text-gray-900 font-medium hover:text-gray-700"
       >
         詳細を見る →
       </Link>

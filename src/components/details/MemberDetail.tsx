@@ -160,7 +160,7 @@ export const MemberDetail: React.FC<MemberDetailProps> = ({ slug }) => {
                 href={`https://x.com/${member.twitter.replace('@', '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base text-blue-600 hover:text-blue-700 transition-colors"
+                className="text-base text-blue-600 hover:text-blue-700 "
               >
                 {member.twitter}
               </a>
@@ -174,7 +174,7 @@ export const MemberDetail: React.FC<MemberDetailProps> = ({ slug }) => {
               </h3>
               <a
                 href={`mailto:${member.email}`}
-                className="text-base text-blue-600 hover:text-blue-700 transition-colors"
+                className="text-base text-blue-600 hover:text-blue-700 "
               >
                 {member.email}
               </a>

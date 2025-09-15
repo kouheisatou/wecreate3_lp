@@ -30,7 +30,7 @@ export default async function ActivityDetailPage({ params }: ActivityDetailPageP
           <div className="mb-8">
             <Link
               href="/activities"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-gray-600 hover:text-gray-900 "
             >
               ← 活動一覧に戻る
             </Link>

@@ -31,7 +31,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => (
         <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-2">
           <Link
             href={`/events/${event.slug}`}
-            className="text-gray-900"
+            className="text-gray-900 hover:text-gray-700"
           >
             {event.title}
           </Link>
@@ -40,7 +40,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => (
         <div className="text-xs sm:text-sm text-gray-600 mb-3">{event.description}</div>
         <Link
           href={`/events/${event.slug}`}
-          className="text-xs sm:text-sm text-gray-900 font-medium"
+          className="text-xs sm:text-sm text-gray-900 font-medium hover:text-gray-700"
         >
           詳細を見る →
         </Link>

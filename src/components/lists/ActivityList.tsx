@@ -19,7 +19,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => (
       <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
         <Link
           href={`/activities/${activity.slug}`}
-          className="text-gray-900"
+          className="text-gray-900 hover:text-gray-700"
         >
           {activity.title}
         </Link>
@@ -46,7 +46,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => (
     <div className="pt-4 border-t border-gray-100">
       <Link
         href={`/activities/${activity.slug}`}
-        className="text-sm text-gray-900 font-medium"
+        className="text-sm text-gray-900 font-medium hover:text-gray-700"
       >
         詳細を見る →
       </Link>
