@@ -2,7 +2,7 @@
 id: 2025-web3-ai-meeting
 title: Web3＆AI超会議
 description: 学生団体ニューラビットとの共催イベント
-image: /images/events/2025-web3-ai-meeting.jpg
+image: https://picsum.photos/seed/event-2025-ai-hero/1200/630
 date: 2025-03-29
 location: メルカリ東京オフィス・六本木ヒルズ
 tags: [Web3, AI, 共催イベント, 大手企業]
@@ -14,6 +14,8 @@ tags: [Web3, AI, 共催イベント, 大手企業]
 
 2025年3月29日、メルカリ東京オフィス・六本木ヒルズにて開催される大規模イベントです。学生団体ニューラビットとの共催により、Web3とAI技術の融合をテーマに、業界最前線の知見を学生に届けます。
 
+![会場エントランス](https://picsum.photos/seed/event-2025-ai-entrance/1200/700)
+
 ## 開催情報
 
 - **日時**: 2025年3月29日
@@ -21,6 +23,8 @@ tags: [Web3, AI, 共催イベント, 大手企業]
 - **主催**: WeCreate3
 - **共催**: 学生団体ニューラビット
 - **対象**: 全国の学生
+
+![受付と導線設計](https://picsum.photos/seed/event-2025-ai-reception/1200/700)
 
 ## 参加企業・登壇者
 
@@ -31,16 +35,24 @@ tags: [Web3, AI, 共催イベント, 大手企業]
 - **野村ホールディングス** - 金融×Web3の未来
 - **Google** - AI技術とその応用
 
+![企業ブースの様子](https://picsum.photos/seed/event-2025-ai-booths/1200/700)
+
 ## プログラム内容
 
 ### 基調講演
 各参加企業のリーダーによる基調講演を予定しています。Web3とAI技術の最新動向、そして両技術の融合による新たな可能性について語っていただきます。
 
+![基調講演](https://picsum.photos/seed/event-2025-ai-keynote/1200/700)
+
 ### パネルディスカッション
 「Web3×AIが拓く未来の社会」をテーマに、産学連携の視点からディスカッションを行います。
 
+![パネルディスカッション](https://picsum.photos/seed/event-2025-ai-panel/1200/700)
+
 ### ネットワーキングセッション
 参加学生と企業関係者、そして学生同士の交流時間を設けます。
+
+![ネットワーキング](https://picsum.photos/seed/event-2025-ai-networking/1200/700)
 
 ## 期待される成果
 
@@ -48,6 +60,8 @@ tags: [Web3, AI, 共催イベント, 大手企業]
 - 業界リーダーとの直接対話機会
 - 同世代の学生との技術的議論
 - 実際のインターンシップや就職機会の発見
+
+![閉会後の記念撮影](https://picsum.photos/seed/event-2025-ai-group/1200/700)
 
 ## 申し込み・参加方法
 

@@ -2,7 +2,7 @@
 id: community
 title: コミュニティ運営
 description: 全国学生ネットワークを構築
-image: /images/activities/community.jpg
+image: https://picsum.photos/seed/activity-community-hero/1200/630
 tags: [コミュニティ, ネットワーキング, 学生交流, 全国規模]
 ---
 
@@ -12,11 +12,15 @@ tags: [コミュニティ, ネットワーキング, 学生交流, 全国規模]
 
 WeCreate3は日本全国の学生Web3コミュニティの中心的な役割を担い、学生同士の横断的なネットワーク構築と、業界プロフェッショナルとの継続的な交流機会を提供しています。
 
+![全国ネットワークのイメージ](https://picsum.photos/seed/activity-community-map/1200/700)
+
 ## 主な取り組み
 
 ### 1. 全国学生ネットワーク
 
 北海道から沖縄まで、全国各地の学生Web3コミュニティと連携し、情報共有と相互支援のネットワークを構築しています。
+
+![地域コミュニティの集合写真](https://picsum.photos/seed/activity-community-gathering/1200/700)
 
 **ネットワーク規模**
 - 参加大学: 50校以上
@@ -27,6 +31,8 @@ WeCreate3は日本全国の学生Web3コミュニティの中心的な役割を�
 
 学生と業界プロフェッショナルを繋ぐハブとして、インターンシップ、就職、プロジェクト参加などの機会を提供しています。
 
+![企業との交流イベント](https://picsum.photos/seed/activity-community-industry/1200/700)
+
 **連携企業・組織**
 - Web3スタートアップ
 - 大手IT企業のブロックチェーン部門
@@ -36,6 +42,8 @@ WeCreate3は日本全国の学生Web3コミュニティの中心的な役割を�
 ### 3. 継続的な学習機会
 
 一過性のイベントではなく、継続的に学習・成長できる環境を整備しています。
+
+![勉強会の様子](https://picsum.photos/seed/activity-community-study/1200/700)
 
 **学習支援プログラム**
 - 定期勉強会（月2回）
@@ -50,15 +58,21 @@ WeCreate3は日本全国の学生Web3コミュニティの中心的な役割を�
 - 専門チャンネル別の情報共有
 - バーチャルイベント開催
 
+![オンラインコミュニティ](https://picsum.photos/seed/activity-community-discord/1200/700)
+
 ### オフラインミートアップ
 - 地域別ミートアップ（月1回）
 - 技術テーマ別勉強会
 - 懇親会・ネットワーキング
 
+![オフライン交流会](https://picsum.photos/seed/activity-community-offline/1200/700)
+
 ### プロジェクト支援
 - 学生プロジェクトのメンタリング
 - チーム編成支援
 - リソース・ツールの提供
+
+![プロジェクト支援の様子](https://picsum.photos/seed/activity-community-project/1200/700)
 
 ## コミュニティ運営方針
 
@@ -75,6 +89,8 @@ WeCreate3は日本全国の学生Web3コミュニティの中心的な役割を�
 メンバー同士の助け合いと成長を促進
 
 ## 実績・効果
+
+![コミュニティの成長](https://picsum.photos/seed/activity-community-growth/1200/700)
 
 - **コミュニティメンバー**: 1,000名突破
 - **プロジェクト創出**: 50件以上

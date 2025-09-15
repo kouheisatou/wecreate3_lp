@@ -1,5 +1,16 @@
 // 外部プレースホルダー画像のURL生成ユーティリティ
 // 後で実画像URLに入れ替えやすいよう、関数経由で参照します。
+import { BASE_PATH } from './constants';
+
+// BASE_PATH を考慮してアセットURLを解決
+export const resolveAssetUrl = (url?: string): string | undefined => {
+  if (!url) return url;
+  // すでに絶対URLやデータURLならそのまま
+  if (/^(https?:)?\/\//.test(url) || url.startsWith('data:')) return url;
+  // 先頭スラッシュのパスは BASE_PATH を付与
+  if (url.startsWith('/')) return `${BASE_PATH}${url}`;
+  return url;
+};
 
 export const getActivityImage = (slug: string, width = 800, height = 480) => {
   const seed = encodeURIComponent(`activity-${slug}`);
@@ -27,7 +38,7 @@ export const pickActivityImage = (
 ) => {
   const fm = detail?.data ?? {};
   const frontImage: string | undefined = (fm.image as string) || (fm.cover as string) || (fm.thumbnail as string);
-  return frontImage || getActivityImage(activity.slug, width, height);
+  return resolveAssetUrl(frontImage) || getActivityImage(activity.slug, width, height);
 };
 
 export const pickEventImage = (
@@ -38,12 +49,17 @@ export const pickEventImage = (
 ) => {
   const fm = detail?.data ?? {};
   const frontImage: string | undefined = (fm.image as string) || (fm.cover as string) || (fm.thumbnail as string);
-  return event.image_url || frontImage || getEventImage(event.slug, width, height);
+  // frontmatter の画像を優先し、次に CSV の image_url、最後にプレースホルダー
+  return (
+    resolveAssetUrl(frontImage) ||
+    resolveAssetUrl(event.image_url) ||
+    getEventImage(event.slug, width, height)
+  );
 };
 
 export const pickMemberImage = (
   member: { slug: string; image_url?: string },
   size = 160
 ) => {
-  return member.image_url || getMemberImage(member.slug, size);
+  return resolveAssetUrl(member.image_url) || getMemberImage(member.slug, size);
 };

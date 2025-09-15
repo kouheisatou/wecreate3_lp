@@ -2,7 +2,7 @@
 id: education
 title: 教育・啓発活動
 description: Web3・メタバースの基礎知識を普及
-image: /images/activities/education.jpg
+image: https://picsum.photos/seed/activity-education-hero/1200/630
 tags: [教育, 基礎知識, ワークショップ, 初心者向け]
 ---
 
@@ -12,11 +12,15 @@ tags: [教育, 基礎知識, ワークショップ, 初心者向け]
 
 WeCreate3では、Web3・メタバース技術の普及と理解促進を目的とした教育・啓発活動に力を入れています。初心者から上級者まで、幅広いレベルの学生に対応した学習コンテンツとワークショップを提供しています。
 
+![講義の様子](https://picsum.photos/seed/activity-education-class/1200/700)
+
 ## 主な取り組み
 
 ### 1. 基礎知識普及
 
 Web3・メタバース技術の基礎概念から実践的な応用まで、段階的な学習プログラムを提供しています。
+
+![基礎資料イメージ](https://picsum.photos/seed/activity-education-basics/1200/700)
 
 **学習内容**
 - ブロックチェーンの基本概念
@@ -28,6 +32,8 @@ Web3・メタバース技術の基礎概念から実践的な応用まで、段�
 
 技術的な知識がない学生でも理解しやすい、分かりやすいコンテンツを作成・配信しています。
 
+![初心者ワークショップ](https://picsum.photos/seed/activity-education-beginner/1200/700)
+
 **コンテンツ形式**
 - 図解を多用した資料
 - 実際の操作を伴うハンズオン
@@ -37,6 +43,8 @@ Web3・メタバース技術の基礎概念から実践的な応用まで、段�
 ### 3. 実践的ワークショップ
 
 理論だけでなく、実際に手を動かして学べるワークショップを定期的に開催しています。
+
+![ハンズオンの様子](https://picsum.photos/seed/activity-education-hands-on/1200/700)
 
 **ワークショップ例**
 - ウォレットの作成・操作
@@ -55,7 +63,11 @@ Web3・メタバース技術の全体像を掴むための導入プログラム
 ### 実践コース（1日）
 実際にプロダクトを作成・操作する体験型プログラム
 
+![教材と実機](https://picsum.photos/seed/activity-education-materials/1200/700)
+
 ## 実績
+
+![参加者の声](https://picsum.photos/seed/activity-education-feedback/1200/700)
 
 - **累計参加者数**: 500名以上
 - **開催回数**: 月2-3回のペースで継続開催

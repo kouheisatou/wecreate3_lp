@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Member, ContentDetail, fetchMemberProfile, fetchMembers } from '../../utils';
 import { pickMemberImage } from '../../utils';
+import { resolveAssetUrl } from '../../utils';
 
 interface MemberDetailProps {
   slug: string;
@@ -223,9 +224,17 @@ export const MemberDetail: React.FC<MemberDetailProps> = ({ slug }) => {
                 {children}
               </p>
             ),
-            img: (props) => (
-              <img {...props} className="w-full h-auto rounded-lg my-4" loading="lazy" />
-            ),
+            img: (props) => {
+              const { src, alt } = props as any;
+              return (
+                <img
+                  src={resolveAssetUrl(src) as string}
+                  alt={alt as string}
+                  className="w-full h-auto rounded-lg my-4"
+                  loading="lazy"
+                />
+              );
+            },
             a: ({ href, children }) => (
               <a href={href as string} className="text-blue-600 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">
                 {children}

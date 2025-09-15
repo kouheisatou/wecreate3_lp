@@ -8,40 +8,22 @@ image: "/images/team/hayashi-ceo.jpg"
 
 Web3スタートアップの経営経験を活かし、事業戦略・資金調達の観点からコミュニティを支援しています。
 
+![メンタリングの様子](https://picsum.photos/seed/member-hayashi-mentoring/1200/700)
+
 # 支援領域
----
+
 - 事業戦略立案
 - アライアンス・資金調達
+
+![戦略ディスカッション](https://picsum.photos/seed/member-hayashi-strategy/1200/700)
 
 # 実績
 
 - スタートアップ創業〜グロースの実務経験
+- 投資家・CVCとのネットワーク構築
+
+![ネットワーキング](https://picsum.photos/seed/member-hayashi-network/1200/700)
 
 # 連絡先
 
 - Email: hayashi@startup.com
-title: "WeCreate3主催 web3勉強会"
-cover: "/images/events/2023-web3-study-session.jpg"
----
-
-# 概要
-
-Web3の基礎知識を学ぶための入門勉強会です。ブロックチェーンの基本から最新トレンドまで、学生が理解しやすい構成で解説しました。
-
-- 開催日: 2023年9月24日
-- 会場: Crypto Lounge GOX
-
-# コンテンツ
-
-- ブロックチェーンと分散型台帳の基礎
-- ウォレット・トークン・NFTの基礎
-- 質疑応答・交流タイム
-
-# 参加メリット
-
-- 初学者でも理解しやすい解説
-- 次のステップ（ハンズオン/ハッカソン）への橋渡し
-
-# 連絡先
-
-最新情報は公式X（@We_Create_3）をご確認ください。

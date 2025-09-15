@@ -2,7 +2,7 @@
 id: event-planning
 title: 大規模イベント企画・運営
 description: 業界リーダーとの直接交流機会を提供
-image: /images/activities/event-planning.jpg
+image: https://picsum.photos/seed/activity-event-planning-hero/1200/630
 tags: [イベント, ネットワーキング, 業界交流]
 ---
 
@@ -12,11 +12,15 @@ tags: [イベント, ネットワーキング, 業界交流]
 
 WeCreate3では、Web3・メタバース業界のリーダーと学生を繋ぐ大規模イベントを企画・運営しています。業界の最前線で活躍するプロフェッショナルとの直接的な交流機会を提供し、学生が実際のビジネスや技術動向を学べる場を創出しています。
 
+![会場全景](https://picsum.photos/seed/activity-event-planning-venue/1200/700)
+
 ## 主な取り組み
 
 ### 1. 業界リーダーとの直接交流
 
 各種イベントでは、Web3・メタバース業界を牽引する企業のCEO、CTOをはじめとする業界リーダーを招待し、学生との直接対話の機会を設けています。
+
+![ネットワーキングの様子](https://picsum.photos/seed/activity-event-planning-networking/1200/700)
 
 **これまでの登壇者・参加企業**
 - KDDI
@@ -31,6 +35,8 @@ WeCreate3では、Web3・メタバース業界のリーダーと学生を繋ぐ�
 
 業界の最新技術動向やトレンドについて、実際にその分野で開発に携わる技術者から直接学べる機会を提供しています。
 
+![登壇・基調講演](https://picsum.photos/seed/activity-event-planning-keynote/1200/700)
+
 **取り扱うトピック**
 - ブロックチェーン技術の最新動向
 - メタバース技術とその応用
@@ -41,12 +47,16 @@ WeCreate3では、Web3・メタバース業界のリーダーと学生を繋ぐ�
 
 同じ志を持つ学生同士、そして業界のプロフェッショナルとのネットワーキング機会を積極的に設けています。
 
+![パネルディスカッション](https://picsum.photos/seed/activity-event-planning-panel/1200/700)
+
 ## 実績
 
 ### Web3＆AI超会議（2025年3月）
 - 会場：メルカリ東京オフィス・六本木ヒルズ
 - 共催：学生団体ニューラビット
 - 参加企業：KDDI、メルカリ、Binance Japan、野村ホールディングス、Google
+
+![懇親会の様子](https://picsum.photos/seed/activity-event-planning-party/1200/700)
 
 ### 学生Web3&Metaverse超会議シリーズ
 - 第2弾（2023年1月）：WeCreate3初開催

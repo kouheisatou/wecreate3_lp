@@ -2,7 +2,7 @@
 id: research-development
 title: 研究・開発支援
 description: ハッカソンや学生プロジェクトを支援
-image: /images/activities/research-development.jpg
+image: https://picsum.photos/seed/activity-rd-hero/1200/630
 tags: [ハッカソン, 開発支援, プロジェクト, 技術革新]
 ---
 
@@ -12,11 +12,15 @@ tags: [ハッカソン, 開発支援, プロジェクト, 技術革新]
 
 WeCreate3では、学生の技術的な挑戦と革新的なプロダクト開発を支援しています。ハッカソンの開催、学生プロジェクトへのメンタリング、技術リソースの提供を通じて、実践的なスキル向上と創造的な問題解決能力の育成を図っています。
 
+![ハッカソン会場の様子](https://picsum.photos/seed/activity-rd-hackathon/1200/700)
+
 ## 主な取り組み
 
 ### 1. ハッカソン支援
 
 定期的なハッカソン開催と、外部ハッカソンへの参加支援を行っています。
+
+![チーム開発の風景](https://picsum.photos/seed/activity-rd-teamdev/1200/700)
 
 **ハッカソン実績**
 - WeCreate3主催ハッカソン: 年4回開催
@@ -33,6 +37,8 @@ WeCreate3では、学生の技術的な挑戦と革新的なプロダクト開�
 
 個人・チームでの長期プロジェクトに対する包括的な支援を提供しています。
 
+![プロダクトレビュー](https://picsum.photos/seed/activity-rd-review/1200/700)
+
 **支援プロジェクト例**
 - NFTマーケットプレイス開発
 - DeFiプロトコル設計
@@ -48,6 +54,8 @@ WeCreate3では、学生の技術的な挑戦と革新的なプロダクト開�
 ### 3. 実践的スキル向上
 
 座学だけでは身につかない、実際の開発現場で必要なスキルの習得を支援しています。
+
+![コードレビュー](https://picsum.photos/seed/activity-rd-codereview/1200/700)
 
 **スキル開発分野**
 - Solidity プログラミング
@@ -70,6 +78,8 @@ WeCreate3では、学生の技術的な挑戦と革新的なプロダクト開�
 - 技術書籍・教材
 - ハードウェア貸出
 
+![設備・リソース](https://picsum.photos/seed/activity-rd-lab/1200/700)
+
 ## 技術コミュニティ
 
 ### 技術勉強会
@@ -84,10 +94,12 @@ WeCreate3では、学生の技術的な挑戦と革新的なプロダクト開�
 - 技術ブログ執筆
 - 技術カンファレンス登壇
 
+![コミュニティの集合写真](https://picsum.photos/seed/activity-rd-community/1200/700)
+
 ## 実績・成果
 
 ### プロジェクト成果
-- **完成プロジェクト**: 80件以上
+- **完了プロジェクト**: 80件以上
 - **リリース済みプロダクト**: 25件
 - **特許出願**: 5件
 - **論文発表**: 10件
