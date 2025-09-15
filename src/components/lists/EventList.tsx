@@ -10,68 +10,49 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => (
-  <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-    <img
-      src={getEventImage(event.slug, 1200, 630)}
-      alt={`${event.title} のサムネイル`}
-      className="w-full h-40 object-cover"
-      loading="lazy"
-    />
-    <div className="p-6 md:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4">
-        <div className="lg:col-span-1">
-          <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">日付</div>
-          <div className="text-sm sm:text-base font-semibold text-gray-900">
-            {new Date(event.date).toLocaleDateString('ja-JP', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </div>
-          {event.featured && (
-            <span className="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full mt-2">
-              注目
-            </span>
-          )}
+  <div className="bg-white rounded-lg shadow-sm overflow-hidden p-4 md:p-6">
+    <div className="flex items-stretch gap-4">
+      {/* 左：サムネイル */}
+      <img
+        src={getEventImage(event.slug, 480, 320)}
+        alt={`${event.title} のサムネイル`}
+        className="w-32 h-24 sm:w-40 sm:h-28 md:w-48 md:h-32 object-cover rounded flex-shrink-0"
+        loading="lazy"
+      />
+
+      {/* 右：イベント情報 */}
+      <div className="flex-1 min-w-0">
+        <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">
+          {new Date(event.date).toLocaleDateString('ja-JP', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
         </div>
-        <div className="lg:col-span-2">
-          <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">イベント名</div>
-          <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-2">
-            <Link
-              href={`/events/${event.slug}`}
-              className="text-gray-900 hover:text-gray-700"
-            >
-              {event.title}
-            </Link>
-          </h3>
-          <div className="text-xs sm:text-sm text-gray-600 mb-2">{event.location}</div>
-          <div className="text-xs sm:text-sm text-gray-600 mb-3">{event.description}</div>
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 truncate">
           <Link
             href={`/events/${event.slug}`}
-            className="text-xs sm:text-sm text-gray-900 font-medium hover:text-gray-700"
+            className="text-gray-900 hover:text-gray-700"
           >
-            詳細を見る →
+            {event.title}
           </Link>
-        </div>
-        <div className="lg:col-span-1">
-          {event.participants && event.participants.length > 0 && (
-            <div>
-              <div className="text-xs sm:text-sm font-medium text-gray-500 mb-2">参加企業</div>
-              <div className="flex flex-wrap gap-1">
-                {event.participants.slice(0, 3).map((participant, pIndex) => (
-                  <span key={pIndex} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
-                    {participant}
-                  </span>
-                ))}
-                {event.participants.length > 3 && (
-                  <span className="text-xs text-gray-500">
-                    +{event.participants.length - 3}社
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
+        </h3>
+        <div className="text-xs sm:text-sm text-gray-600 mb-1 line-clamp-1">{event.location}</div>
+        <div className="text-xs sm:text-sm text-gray-600 mb-2 line-clamp-2">{event.description}</div>
+        {event.participants && event.participants.length > 0 && (
+          <div className="flex flex-wrap gap-1">
+            {event.participants.slice(0, 3).map((participant, pIndex) => (
+              <span key={pIndex} className="text-[10px] sm:text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                {participant}
+              </span>
+            ))}
+            {event.participants.length > 3 && (
+              <span className="text-[10px] sm:text-xs text-gray-500">
+                +{event.participants.length - 3}社
+              </span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   </div>
